@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\user;
 
 use App\Http\Controllers\Controller;
+use App\Jobs\RevertProductStatusUpdate;
 use App\Models\Order;
 use App\Models\OrderItem;
 use App\Models\Product;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -39,7 +41,7 @@ class CheckoutController extends Controller
             'total_price' => $totalPrice,
             'shipping_method' => $request->shipping_method,
             'payment_method' => $request->payment_method,
-            'status' => 'waiting_for_payment'
+            'status' => 'waiting_for_payment',
         ]);
 
         foreach ($selectedProducts as $productId) {
@@ -65,18 +67,22 @@ class CheckoutController extends Controller
         $remainingCart = array_diff_key($cart, array_flip($selectedProducts));
         session()->put("cart_{$userId}", $remainingCart);
 
+        RevertProductStatusUpdate::dispatch($order)->delay(now()->addSeconds(200));
+
         return redirect()->route('checkout.index');
         // ->with('success', 'Order created successfully!');
     }
 
-    public function index(Product $product)
+    public function index()
     {
         $userId = auth()->id();
-        $orders = session()->get("orders_{$userId}", []);
-        $waitingOrders = collect($orders)->filter(function ($order) {
-            return $order->status === 'waiting_for_payment';
-        });
-        return view('user.product.checkout', ['orders' => $waitingOrders]);
+        $orders = Order::where('user_id', $userId)
+            ->where('status', 'waiting_for_payment')
+            ->with('orderItems.product')
+            ->latest()
+            ->get();
+
+        return view('user.product.checkout', compact('orders'));
     }
 
     public function pay($orderId)
@@ -106,5 +112,4 @@ class CheckoutController extends Controller
         return redirect()->route('confirmation.index');
         // ->with('success', 'Order paid successfully!');
     }
-
 }

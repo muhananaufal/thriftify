@@ -32,8 +32,8 @@ class RegisterController extends Controller
             'last_name' => 'required',
             'email' => 'required|email|unique:users,email',
             'gender' => 'nullable',
-            'address' => 'nullable',
-            'phone_number' => 'nullable|string|regex:/^\d{1,15}$/',
+            'address' => 'required',
+            'phone_number' => 'required|phone_number',
             'date_of_birth' => 'nullable',
             'password' => 'required|confirmed|min:8',
         ]);
@@ -44,8 +44,8 @@ class RegisterController extends Controller
             'last_name' => $request->input('last_name'),
             'email' => $request->input('email'),
             'gender' => '',
-            'address' => '',
-            'phone_number' => '',
+            'address' => $request->input('address'),
+            'phone_number' => $request->input('phone_number'),
             'password' => bcrypt($request->input('password')),
             'slug' => Str::slug($request->input('first_name') . '-' . $request->input('last_name')),
         ]);

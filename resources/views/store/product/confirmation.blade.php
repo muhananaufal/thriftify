@@ -14,7 +14,7 @@
   <div class="container">
     <h1>Confirm Orders</h1>
     @foreach($orders as $order)
-        <div class="card mb-3">
+        <a class="card mb-3 text-decoration-none" href="{{ route('store.confirmation.show', $order->id) }}">
             <div class="card-header">
                 Order #{{ $order->id }} - Total: ${{ $order->total_price }}
             </div>
@@ -41,7 +41,7 @@
                     <button type="submit" class="btn btn-primary">Rejected Order</button>
                 </form>
             </div>
-        </div>
+        </a>
     @endforeach
 </div>
 

@@ -45,9 +45,11 @@ Route::middleware(['auth:store'])->group(function () {
     Route::get('/store/product/details/{product:slug}', [StoreProductController::class, 'details'])->name('store.product.details');
 
     Route::get('/store/confirmation', [StoreConfirmationController::class, 'index'])->name('store.confirmation.index');
+    Route::get('/store/confirmation/show/{order}', [StoreDashboardController::class, 'order'])->name('store.confirmation.show');
     Route::put('/store/confirmation/{order}/confirm', [StoreConfirmationController::class, 'confirm'])->name('store.confirmation.confirm');
     Route::put('/store/confirmation/{order}/reject', [StoreConfirmationController::class, 'reject'])->name('store.confirmation.reject');
-
+    
+    Route::get('/store/sales/show/{order}', [StoreDashboardController::class, 'order'])->name('store.sales.show');
     Route::get('/store/sales', [StoreSalesController::class, 'index'])->name('store.sales.index');
 });
 
@@ -66,10 +68,13 @@ Route::middleware('auth')->group(function () {
     Route::post('/cart/add/{product}', [UserCartController::class, 'add'])->name('cart.add');
     Route::get('/checkout', [UserCheckoutController::class, 'index'])->name('checkout.index');
     Route::post('/checkout', [UserCheckoutController::class, 'checkout'])->name('checkout.process');
+    Route::get('/checkout/show/{order}', [UserProductController::class, 'order'])->name('checkout.show');
     Route::post('/checkout/pay/{order}', [UserCheckoutController::class, 'pay'])->name('checkout.pay');
     Route::get('/confirmation', [UserConfirmationController::class, 'index'])->name('confirmation.index');
+    Route::get('/confirmation/show/{order}', [UserProductController::class, 'order'])->name('confirmation.show');
     Route::put('/confirmation/{order}/reject', [UserConfirmationController::class, 'reject'])->name('confirmation.reject');
     Route::get('/history', [UserHistoryController::class, 'index'])->name('history.index');
+    Route::get('/history/show/{order}', [UserProductController::class, 'order'])->name('history.show');
 });
 
 // Routes for Guest

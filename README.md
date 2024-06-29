@@ -19,7 +19,7 @@ Thriftify comes packed with a range of features designed to provide an excellent
 - **Sales History**: View the history of successful sales.
 
 ### Additional Features
-- **Status Updates**: Products automatically update their status from 'on_delivery' to 'success' after 10 seconds of confirmation.
+- **Status Updates**: Products automatically update their status from 'on_delivery' to 'success' after 200 seconds of confirmation.
 - **Session Management**: Manage carts and orders through sessions.
 
 ## Setup

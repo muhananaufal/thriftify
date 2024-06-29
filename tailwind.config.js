@@ -6,7 +6,17 @@ export default {
     "./resources/**/*.vue",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        'primary': '#ebe9d3'
+      },
+      fontFamily: {
+        'poppins': 'Poppins, sans-serif'
+      },
+      fontSize: {
+        'xxs': '10px'
+      },
+    },
   },
   plugins: [],
 }

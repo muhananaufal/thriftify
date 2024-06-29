@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" 
+    rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.1/dist/cdn.min.js"></script>
+    <title>Store Dashboard</title>
+</head>
+<body>
+    <div class="md:flex font-poppins">
+        <!-- sidebar -->
+        <div class="bg-white sidebar max-h-screen top-0 h-screen w-64 fixed inset-y-0 left-0 transform transition duration-200 ease-in-out z-50"
+            x-data="{ open: true }" x-on:togglesidebar.window=" open = !open" x-show="true"
+            :class="open === true ? 'md:translate-x-0 md:sticky ':'-translate-x-full' ">
+    
+    
+            <header class=" h-[64px] py-6 px-8 md:sticky top-0 z-40">
+                <!-- logo -->
+                <h1 class="font-bold uppercase text-black text-2xl">Thriftify<span class="text-xs">&copy;</span></h1>
+            </header>
+    
+    
+            <!-- nav -->
+            <nav class="px-4 pt-4 max-h-[calc(100vh-64px)]" x-data="{selected:'Tasks'}">
+                <ul class="flex flex-col space-y-2">
+    
+                    <!-- Section Devider -->
+                    <div class="section pt-4 mb-1 text-xs text-gray-600 uppercase pb-1 pl-3">
+                        Overview
+                    </div>
+                    <!-- ITEM -->
+                    <li class="text-sm">
+                        <a href="index.html"
+                            class="flex items-center w-full py-2 px-4 rounded relative hover:bg-gray-100 ">
+                            <div class="pr-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+                            </div>
+                            <div>Dashboard </div>
+                        </a>
+                    </li>
+    
+    
+                    <!-- ITEM -->
+                    <li class="text-sm">
+                        <a href="sales.html"
+                            class="flex items-center w-full py-2 px-4 rounded relative hover:bg-gray-100 ">
+                            <div class="pr-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M18.7 8l-5.1 5.2-2.8-2.7L7 14.3"/></svg>
+                            </div>
+                            <div>Sales </div>
+                        </a>
+                    </li>
+    
+                    <!-- ITEM -->
+                    <li class="text-sm">
+                        <a href="orders.html"
+                            class="flex items-center w-full py-2 px-4 rounded relative hover:bg-gray-100 ">
+                            <div class="pr-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="20.5" r="1"/><circle cx="18" cy="20.5" r="1"/><path d="M2.5 2.5h3l2.7 12.4a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 2-1.6l1.6-8.4H7.1"/></svg>
+                            </div>
+                            <div>Orders </div>
+                        </a>
+                    </li>
+
+                    <!-- ITEM -->
+                    <li class="text-sm">
+                        <a href="products.html"
+                            class="flex items-center w-full py-2 px-4 rounded relative hover:bg-gray-100 ">
+                            <div class="pr-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg>
+                            </div>
+                            <div>Products </div>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <!-- End sidebar -->
+    
+    
+        <!-- content -->
+        <div class="flex-1 flex-col flex min-h-screen">
+    
+            <!-- Top navbar -->
+            <nav class="sticky w-full top-0 text-black z-50 bg-white shadow-sm" x-data="{ mobilemenue: false }">
+                <div class="mx-auto ">
+                    <div class="flex items-stretch justify-between px-10 h-16">
+    
+                        <div class="flex items-center md:hidden">
+                            <div class="-mr-2 flex" x-data>
+                                <!-- Mobile menu button -->
+                                <button type="button" @click="$dispatch('togglesidebar')"
+                                    class=" inline-flex items-center justify-center p-2 rounded-md text-black focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-200 focus:ring-white"
+                                    aria-controls="mobile-menu" aria-expanded="false">
+                                    <span class="sr-only">Open main menu</span>
+    
+                                    <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                        viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M4 6h16M4 12h16M4 18h16" />
+                                    </svg>
+    
+                                    <svg class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                        viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M6 18L18 6M6 6l12 12" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+    
+                        <div class="flex items-center pl-6">
+                            <div class="flex-shrink-0 md:hidden">
+    
+                                <a href="#" class="text-white flex items-center space-x-2 group">
+                                    <div>
+                                        <svg class="h-8 w-8 transition-transform duration-300 group-hover:-rotate-45 "
+                                            fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                                        </svg>
+                                    </div>
+    
+                                    <div>
+                                        <h1 class="font-bold uppercase text-black text-2xl">Thriftify<span class="text-xs">&copy;</span></h1>
+                                    </div>
+                                </a>
+                            </div>
+    
+                            <!-- toggel sidebar -->
+                            <div class="text-white cursor-pointer hidden md:block" @click="$dispatch('togglesidebar')">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                            </div>
+
+                            <!-- Page Title -->
+                            <div class="hidden lg:block px-10">
+                                <h1 class="font-semibold text-xl">Dashboard</h1>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <!-- <div class="hidden lg:block">
+                                <form action="" class="app-search" method="GET">
+                                    <div class="relative group ">
+                                        <input type="text"
+                                            class="form-input rounded-md bg-gray-100 text-sm pl-10 py-1.5 ml-5 border-transparent border-none outline-none focus:ring-0 transition-all duration-300 ease-in-out focus:w-60 w-48"
+                                            placeholder="Search..." autocomplete="off">
+                                        <span
+                                            class="absolute left-44 bottom-2 text-gray-400 transition-all duration-300 ease-in-out group-focus-within:left-8">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none"
+                                                viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                                            </svg>
+                                        </span>
+                                    </div>
+                                </form>
+                            </div> -->
+
+                            <!-- Profile Menu DT -->
+                            <div class="ml-4 flex md:ml-6">
+    
+                                <!-- Profile dropdown -->
+                                <div class="relative px-4 text-gray-400 hover:text-white text-sm cursor-pointer"
+                                    x-data="{open: false}">
+                                    <div class="flex items-center min-h-full" @click="open = !open">
+    
+                                        <div class="max-w-xs rounded-full flex items-center text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
+                                            id="user-menu-button" aria-expanded="false" aria-haspopup="true">
+                                            <span class="sr-only">Open user menu</span>
+                                            <img class="h-8 w-8 rounded-full"
+                                                src="https://i.pinimg.com/originals/d9/d8/8e/d9d88e3d1f74e2b8ced3df051cecb81d.jpg"
+                                                alt="">
+                                        </div>
+                                    </div>
+    
+                                    <div x-show="open" @click.away="open = false"
+                                        class="origin-top-right absolute right-0 mt-0 rounded-b-md py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none w-[200px] shadow-md"
+                                        x-transition:enter="transition ease-out duration-100"
+                                        x-transition:enter-start="transform opacity-0 scale-95"
+                                        x-transition:enter-end="transform opacity-100 scale-100"
+                                        x-transition:leave="transition ease-in duration-75"
+                                        x-transition:leave-start="transform opacity-100 scale-100"
+                                        x-transition:leave-end="transform opacity-0 scale-95" role="menu"
+                                        aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
+                                        <a href="profile.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                                            role="menuitem" tabindex="-1" id="user-menu-item-0">My Profile<a>
+    
+                                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                                            role="menuitem" tabindex="-1" id="user-menu-item-1">Sign
+                                            out</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            <!-- End Top navbar -->
+    
+    
+    
+            <main class="bg-gray-100 mb-auto flex-grow font-poppins">
+                <!-- Hello -->
+                <div class="p-6 grid gap-5">
+                    <div>
+                        <div class="bg-white py-6 px-8 border border-gray-200 rounded-xl">
+                            <h1 class="font-bold text-2xl">Selamat Datang,<br>Administrator</h1>
+                            <p class="text-sm py-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus ea voluptas a sit velit debitis nam laudantium sequi impedit quasi?</p>
+                        </div>
+                    </div>
+
+                    <!-- Overview Cards -->
+                    <div class="grid grid-cols-12 gap-3">
+                        <div class="col-span-4">
+                            <div class="bg-white py-6 px-8 border border-gray-200 rounded-xl">
+                                <p class="text-xs font-semibold">Total Orders</p>
+                                <h1 class="font-bold py-2 text-2xl">100</h1>
+                                <p class="text-xxs">+3 Last 7 Days</p>
+                            </div>
+                        </div>
+                        <div class="col-span-4">
+                            <div class="bg-white py-6 px-8 border border-gray-200 rounded-xl">
+                                <p class="text-xs font-semibold">Need Confirmation</p>
+                                <h1 class="font-bold py-2 text-2xl">98</h1>
+                                <p class="text-xxs">+5 Last 7 Days</p>
+                            </div>
+                        </div>
+                        <div class="col-span-4">
+                            <div class="bg-white py-6 px-8 border border-gray-200 rounded-xl">
+                                <p class="text-xs font-semibold">Succesfull Orders</p>
+                                <h1 class="font-bold py-2 text-2xl">120</h1>
+                                <p class="text-xxs">+10 Last 7 Days</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Recent Sales Table -->
+                    <div class="bg-white py-6 px-8 border border-gray-200 rounded-xl overflow-x-auto">
+                        <h1 class="font-bold text-2xl">Recent Sales <span class="text-xxs text-gray-500">( Last 7 days )</span></h1>
+                        <table class="w-full min-w-[750px] mt-4 border-separate border-spacing-4">
+                            <thead>
+                                <tr>
+                                    <th class="text-left text-xs font-semibold text-gray-500">Invoice ID</th>
+                                    <th class="text-left text-xs font-semibold text-gray-500">Product</th>
+                                    <th class="text-left text-xs font-semibold text-gray-500">Price</th>
+                                    <th class="text-left text-xs font-semibold text-gray-500">Date</th>
+                                    <th class="text-left text-xs font-semibold text-gray-500">Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="text-xs">INV-001</td>
+                                    <td class="text-xs">T-Shirt</td>
+                                    <td class="text-xs">Rp. 100.000</td>
+                                    <td class="text-xs">12-12-2021</td>
+                                    <td class="text-xs">
+                                        <span class="bg-green-200 text-green-600 px-2 py-1 rounded-full">Success</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-xs">INV-002</td>
+                                    <td class="text-xs">Jacket</td>
+                                    <td class="text-xs">Rp. 200.000</td>
+                                    <td class="text-xs">12-12-2021</td>
+                                    <td class="text-xs">
+                                        <span class="bg-green-200 text-green-600 px-2 py-1 rounded-full">Success</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-xs">INV-003</td>
+                                    <td class="text-xs">Shoes</td>
+                                    <td class="text-xs">Rp. 300.000</td>
+                                    <td class="text-xs">12-12-2021</td>
+                                    <td class="text-xs">
+                                        <span class="bg-green-200 text-green-600 px-2 py-1 rounded-full">Success</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-xs">INV-004</td>
+                                    <td class="text-xs">Pants</td>
+                                    <td class="text-xs">Rp. 150.000</td>
+                                    <td class="text-xs">12-12-2021</td>
+                                    <td class="text-xs">
+                                        <span class="bg-green-200 text-green-600 px-2 py-1 rounded-full">Success</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-xs">INV-005</td>
+                                    <td class="text-xs">Hat</td>
+                                    <td class="text-xs">Rp. 50.000</td>
+                                    <td class="text-xs">12-12-2021</td>
+                                    <td class="text-xs">
+                                        <span class="bg-green-200 text-green-600 px-2 py-1 rounded-full">Success</span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </main>
+            <footer class="border-t p-4 pb-3 text-xs bg-gray-100">
+                2024 © Design & Develop by Thriftify Dev Team.
+            </footer>
+        </div>
+    
+    </div>
+    
+    
+</body>
+</html></div>

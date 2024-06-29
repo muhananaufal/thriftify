@@ -170,12 +170,6 @@ Thriftify comes packed with a range of features designed to provide an excellent
 3. View and confirm orders.
 4. Manage sales history.
 
-### Detail
-
-## Feature
-
--
-
 ### Conclusion
 
 Thriftify is a robust multi-vendor e-commerce platform designed to cater to the needs of thrift product enthusiasts. By following the setup instructions and recommendations, you can get Thriftify up and running smoothly. For any issues or feature requests, please refer to the repository's issue tracker.

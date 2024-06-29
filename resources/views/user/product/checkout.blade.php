@@ -12,6 +12,7 @@
 <div class="container">
     <h1>Checkout</h1>
     @foreach($orders as $order)
+        <p>Your order will be automatically rejected after 200 seconds system if you have not made payment after checkout</p>
         <a class="card mb-3 text-decoration-none" href="{{ route('checkout.show', $order->id) }}">
             <div class="card-header">
                 Order #{{ $order->id }} - Total: ${{ $order->total_price }}
@@ -35,6 +36,22 @@
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var timer = 200;
+        var interval = setInterval(function () {
+            var minutes = Math.floor(timer / 60);
+            var seconds = timer % 60;
+            document.getElementById('timer').textContent = minutes + ":" + (seconds < 10 ? '0' + seconds : seconds);
+            timer--;
+            if (timer < 0) {
+                clearInterval(interval);
+                document.getElementById('timer').textContent = "Time's up!";
+            }
+        }, 1000);
+    });
+</script>
+
 
 </body>
 </html>

@@ -121,16 +121,16 @@ Happy Thrifting with Thriftify!
 ### Team Members
 Thriftify is developed by Team Atom a team from AMCC:
 
-Team Leader: Muhana Naufal Al-Atsari - [muhananaufal@students.amikom.ac.id]
+- Team Leader: Muhana Naufal Al-Atsari - [muhananaufal@students.amikom.ac.id]
 
-Backend Fasilitator: Adib
-Backend Developer: Muhana Naufal Al-Atsari - [muhananaufal@students.amikom.ac.id]
-Backend Developer: Syafiq Ilham Sholehudin - [syafiqilhams@students.amikom.ac.id]
+- Backend Fasilitator: Adib
+- Backend Developer: Muhana Naufal Al-Atsari - [muhananaufal@students.amikom.ac.id]
+- Backend Developer: Syafiq Ilham Sholehudin - [syafiqilhams@students.amikom.ac.id]
 
-Frontend Fasilitator: Figo
-Frontend Developer: Nasywan Damar Fadhila - [nasywanfadilah@gmail.com]
-Frontend Developer: Aurellia Nur Fitria - [orellaja@students.amikom.ac.id]
-Frontend Developer: Rosita Kurnia Larasati - [sitaras@students.amikom.ac.id]
+- Frontend Fasilitator: Figo
+- Frontend Developer: Nasywan Damar Fadhila - [nasywanfadilah@gmail.com]
+- Frontend Developer: Aurellia Nur Fitria - [orellaja@students.amikom.ac.id]
+- Frontend Developer: Rosita Kurnia Larasati - [sitaras@students.amikom.ac.id]
 
 ### Project Management
 The Thriftify project was managed using ClickUp, a comprehensive project management tool. ClickUp allowed us to effectively:

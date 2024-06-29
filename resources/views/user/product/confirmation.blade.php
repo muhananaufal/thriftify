@@ -13,7 +13,7 @@
   <div class="container">
     <h1>Need Confirmation</h1>
     @foreach($orders as $order)
-        <div class="card mb-3">
+        <a class="card mb-3 text-decoration-none" href="{{ route('confirmation.show', $order->id) }}">
             <div class="card-header">
                 Order #{{ $order->id }} - Total: ${{ $order->total_price }}
             </div>
@@ -37,7 +37,7 @@
                     </form>
                 </ul>
             </div>
-        </div>
+        </a>
     @endforeach
 </div>
 </body>

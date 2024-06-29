@@ -11,7 +11,7 @@ class LogoutController extends Controller
     public function logout()
     {
         Auth::guard('store')->logout();
-        return redirect()->back();
+        return redirect()->route('landing');
         // ->with('logout', 'Peringatan!! kamu baru saja logout dari akun kamu');
     }
 }

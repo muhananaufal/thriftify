@@ -106,4 +106,5 @@ class CheckoutController extends Controller
         return redirect()->route('confirmation.index');
         // ->with('success', 'Order paid successfully!');
     }
+
 }

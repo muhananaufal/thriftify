@@ -4,6 +4,7 @@ namespace App\Http\Controllers\store;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Models\Order;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -21,6 +22,7 @@ class ProductController extends Controller
             'products' => $products
         ]);
     }
+
 
 
     // create

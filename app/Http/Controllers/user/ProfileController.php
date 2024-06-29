@@ -29,10 +29,10 @@ class ProfileController extends Controller
             'first_name' => 'required',
             'last_name' => 'required',
             'email' => 'required',
+            'address' => 'required',
             'gender' => 'nullable',
-            'address' => 'nullable',
-            'phone_number' => 'nullable|phone_number',
             'date_of_birth' => 'nullable',
+            'phone_number' => 'required|phone_number',
             'password' => 'nullable|confirmed|min:8', // Only require password if provided
         ]);
 

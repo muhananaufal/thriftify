@@ -14,7 +14,7 @@
   <div class="container">
     <h1>Sales</h1>
     @foreach($orders as $order)
-        <div class="card mb-3">
+        <a class="card mb-3 text-decoration-none" href="{{ route('store.sales.show', $order->id) }}">
             <div class="card-header">
                 Order #{{ $order->id }} - Total: ${{ $order->total_price }}
             </div>
@@ -31,7 +31,7 @@
                     @endforeach
                 </ul>
             </div>
-        </div>
+        </a>
     @endforeach
 </div>
 

@@ -22,12 +22,19 @@
 <p class="alert alert-success">{{Session::get('register')}}</p>
 @endif
 
-<div class="row">
+<div class="container">
     {{-- <div class="col-md-6 pt-5"> --}}
     {{-- <a href="{{route('register')}}" class="text-decoration-none small">Dont have account?</a> --}}
-      ini halaman dashboard
-      
-      <a href="{{route('store.logout')}}" class="nav-link btn btn-danger text-white">Log out</a>
+      <p>
+        ini halaman dashboard
+        </p>
+          <img src="{{ auth()->user()->picture }}" alt="" class="w-25">
+          <p class="text-info small">{{auth()->user()->name}}</p>
+      <a href="{{route('store.profile.index')}}" class="btn btn-danger text-white">Profile</a>
+      <a href="{{route('store.logout')}}" class="btn btn-danger text-white">Log out</a>
+      <a href="{{route('store.products.index')}}" class="btn btn-primary text-white">All Product</a>
+      <a href="{{route('store.confirmation.index')}}" class="btn btn-primary text-white">Confirmation</a>
+      <a href="{{route('store.sales.index')}}" class="btn btn-primary text-white">Sales</a>
 
     {{-- </div> --}}
 </div>

@@ -17,7 +17,7 @@ class GuestMiddleware
     public function handle(Request $request, Closure $next)
     {
         if (Auth::guard('web')->check() || Auth::guard('store')->check()) {
-            return redirect('/home'); // atau halaman yang sesuai
+            return redirect('/');
         }
 
         return $next($request);

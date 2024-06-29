@@ -25,7 +25,8 @@ class LoginController extends Controller
         ])) {
             return redirect()->route('store.dashboard');
         } else {
-            return redirect()->back()->with('login_failed', 'Login gagal!! Silahkan periksa kembali data yang anda masukkan');
+            return redirect()->back();
+            // ->with('login_failed', 'Login gagal!! Silahkan periksa kembali data yang anda masukkan');
         }
     }
 }

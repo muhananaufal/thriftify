@@ -139,7 +139,7 @@
 
                             <!-- Page Title -->
                             <div class="hidden lg:block px-10">
-                                <h1 class="font-semibold text-xl">Profile</h1>
+                                <h1 class="font-semibold text-xl">Detail Product</h1>
                             </div>
                         </div>
                         <div class="flex items-center">
@@ -206,47 +206,101 @@
     
             <main class="bg-gray-100 mb-auto flex-grow font-poppins">
                 <div class="px-8 py-12">
-                    <h1 class="font-bold text-2xl">Edit Profile</h1>
-                    <div class="w-full mt-8">
-                        <form class="bg-white p-10 rounded-lg shadow-md">
-                            <div class="my-4">
-                                <div class="flex justify-between gap-3 items-start">
-                                    <!-- input file foto profil -->
-                                    <input type="file" id="profile-picture" class="hidden" onchange="showImage()">
-                                    <label for="profile-picture" class="cursor-pointer relative">
-                                        <img src="https://i.pinimg.com/originals/d9/d8/8e/d9d88e3d1f74e2b8ced3df051cecb81d.jpg" alt="profile" class="w-24 h-24 rounded-full object-cover" id="pfp">
-    
-                                        <div class="bg-black transition-all text-gray-300 bg-opacity-40 hover:bg-opacity-70 w-24 h-12 rounded-b-full bottom-0 left-0 absolute flex items-center justify-center">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><g transform="translate(2 3)"><path d="M20 16a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V5c0-1.1.9-2 2-2h3l2-3h6l2 3h3a2 2 0 0 1 2 2v11z"/><circle cx="10" cy="10" r="4"/></g></svg>
-                                        </div>
-                                    </label>
-                                    
-                                    <div class="mt-6">
-                                        <button type="submit" href="edit-profile.html" class="text-green-500 transition-all hover:bg-green-100 px-4 py-2 rounded-md flex gap-2 items-center"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Save</button>
+
+                    <!-- Form add product -->
+                    <form>
+                        <!-- Header -->
+                        <div  class="flex justify-between items-center">
+                            <div class="max-w-[60%]">
+                                <h1 class="font-bold text-lg md:text-2xl">Detail Product</h1>
+                                <p class="text-xs">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, dolorem?</p>
+                            </div>
+                            <div>
+                                <a href="edit-product.html" class="rounded-lg hover:bg-blue-100 text-blue-500 transition-all flex gap-2 items-center text-sm py-3 px-4">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="16 3 21 8 8 21 3 21 3 16 16 3"></polygon></svg> Edit
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- main content -->
+                        <div class="grid grid-cols-12 md:grid-rows-12 gap-4 mt-8">
+                            <div class="col-span-12 md:col-span-7 md:row-span-12 bg-white px-4 py-6 rounded-lg">
+                                <h2 class="font-bold text-xl">Basic Information</h2>
+                                <div class="grid grid-cols-12 gap-4 mt-4">
+                                    <div class="col-span-12 md:col-span-6">
+                                        <p class="block text-sm font-medium text-gray-500">Product Name</p>
+                                        <p class="mt-1 py-2 block w-full text-xs md:text-sm text-black">Jaket Keren Banget Anjay</p>
+                                    </div>
+                                    <div class="col-span-12 md:col-span-6">
+                                        <p class="block text-sm font-medium text-gray-500">Price</p>
+                                        <p placeholder="e.g. 300000" autocomplete="product-price" class="mt-1 py-2 block w-full text-xs md:text-sm text-black">5000000</p>
+                                    </div>
+                                    <div class="col-span-12 overflow-y-auto">
+                                        <p class="block text-sm font-medium text-gray-500">Description</p>
+                                        <p class="mt-1 py-2 block w-full text-xs md:text-sm h-full text-black">Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque, voluptatem fugiat, sapiente nulla incidunt dolorum error dolor alias reiciendis doloremque quas possimus ipsam repellendus, accusamus omnis saepe nemo sint pariatur quidem aut. Perspiciatis quisquam molestias consectetur? Ad quam exercitationem nihil libero, esse incidunt perferendis vero obcaecati. Quisquam repellendus quam quibusdam ipsum, necessitatibus provident aperiam, illo delectus dolores, corrupti hic omnis. Aut facere, error sunt iste aliquam facilis voluptatibus? Officiis fugit, tempore non explicabo deleniti ipsum architecto debitis ex eligendi, maiores officia provident. Adipisci sed sunt minus nam repellendus dolorum obcaecati dolor repellat. Eligendi fuga consectetur, tempora quia quos sed corrupti vitae labore atque totam magni quisquam. Quis facilis, eaque voluptatem cumque ipsam a cupiditate laudantium quisquam, explicabo provident delectus perspiciatis blanditiis. Accusamus, ipsa consequatur sint nam ipsum alias aspernatur quia, sit neque asperiores illo. Voluptatem facere accusamus qui nisi, iure unde explicabo possimus veniam? Harum consequuntur qui asperiores. Perspiciatis voluptatum velit debitis nemo omnis. Vero consequuntur libero ipsum sint recusandae dolore alias? Quasi dignissimos itaque asperiores deleniti. Incidunt beatae dolore commodi quas at, rerum doloribus magnam debitis quam amet reprehenderit, laudantium, recusandae neque voluptate minus vero molestias molestiae veniam ullam provident. Eius libero nulla in maxime asperiores quisquam, modi perspiciatis! Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatem, accusamus. Nobis dolorum dolorem, repudiandae vel quasi minima ducimus a at amet rerum sequi sit error aperiam velit, autem unde quod fugiat recusandae animi culpa assumenda fuga! Dignissimos velit at adipisci veritatis pariatur dolor, possimus, similique quibusdam inventore sint neque atque.</p>
+                                    </div>
+
+                                    <!-- save as draft or add to product -->
+                                    <div class="col-span-12">
+                                        <label for="addto" class="block text-sm font-medium text-gray-700">Add To</label>
+                                        <select name="addto" id="addto" class="mt-1 py-2 px-3 block w-full text-xs md:text-sm border-gray-300 focus:border-slate-800 transition-all border outline-none rounded-md" disabled>
+                                            <option value="sale">Sale</option>
+                                            <option value="draft">Draft</option>
+                                        </select>
                                     </div>
                                 </div>
                             </div>
-
-                            <div class="grid grid-cols-9 gap-4">
-                                <div class="col-span-9 md:col-span-3 mt-4">
-                                    <label for="name" class="text-xs font-bold uppercase text-gray-400">Name</label>
-                                    <input type="text" id="name" class="form-input w-full mt-1 py-3 px-2 border border-gray-200 outline-none rounded-lg text-xs md:text-sm" value="John Doe">
-                                </div>
-                                <div class="col-span-9 md:col-span-3 mt-4">
-                                    <label for="location" class="text-xs font-bold uppercase text-gray-400">Location</label>
-                                    <input type="text" id="location" class="form-input w-full mt-1 py-3 px-2 border border-gray-200 outline-none rounded-lg text-xs md:text-sm" value="Bandung">
-                                </div>
-                                <div class="col-span-9 md:col-span-3 mt-4">
-                                    <label for="email" class="text-xs font-bold uppercase text-gray-400">Email</label>
-                                    <input type="email" id="email" class="form-input w-full mt-1 py-3 px-2 border border-gray-200 outline-none rounded-lg text-xs md:text-sm" value="niggastore@slave.lol">
-                                </div>
-                                <div class="col-span-9 mt-4">
-                                    <label for="bio" class="text-xs font-bold uppercase text-gray-400">Bio</label>
-                                    <textarea name="bio" id="bio" class="form-textarea w-full mt-1 py-3 px-2 border border-gray-200 outline-none rounded-lg text-xs md:text-sm" rows="10">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aspernatur est quia modi animi voluptate quam quo unde deleniti nihil, at, esse commodi amet minus itaque provident quidem nobis eligendi aliquid.</textarea>
+                            <div class="col-span-12 md:col-span-5 md:row-span-6 bg-white px-4 py-6 rounded-lg">
+                                <h2 class="font-bold text-xl">Product Image</h2>
+                                <div class="mt-4">
+                                    <img src="https://i.pinimg.com/236x/fc/5a/48/fc5a4887615d8e2b86361b2454df76d2.jpg" alt="foto-produk" class="w-48 h-48 border-gray-200 border object-cover mx-auto" id="product-img">
                                 </div>
                             </div>
-                        </form>
-                    </div>
+                            <div class="col-span-12 md:col-span-5 md:row-span-6 bg-white px-4 py-6 rounded-lg">
+                                <h2 class="font-bold text-xl">Product Category</h2>
+                                <div class="grid grid-cols-8 gap-2">
+                                    <div class="mt-4 col-span-8">
+                                        <label for="category" class="block text-sm font-medium text-gray-700">Category</label>
+                                        <select name="category" id="category" class="mt-1 py-2 px-3 block w-full text-xs md:text-sm border-gray-300 focus:border-slate-800 transition-all border outline-none rounded-md" disabled>
+                                            <option value="tops">Tops</option>
+                                            <option value="bottoms">Bottoms</option>
+                                            <option value="outwear">Outwear</option>
+                                            <option value="footwear">Footwear</option>
+                                            <option value="accessories">Accessories</option>
+                                            <option value="sports">Sports</option>
+                                            <option value="kids">Kids</option>
+                                            <option value="other">Other..</option>
+                                        </select>
+                                    </div>
+                                    <div class="mt-4 col-span-4">
+                                        <label for="size" class="block text-sm font-medium text-gray-700">Size</label>
+                                        <select name="size" id="size" class="mt-1 py-2 px-3 block w-full text-xs md:text-sm border-gray-300 focus:border-slate-800 transition-all border outline-none rounded-md" disabled>
+                                            <option value="s">S</option>
+                                            <option value="m">M</option>
+                                            <option value="l">L</option>
+                                            <option value="xl">XL</option>
+                                        </select>
+                                    </div>
+                                    <div class="mt-4 col-span-4">
+                                        <label for="gender" class="block text-sm font-medium text-gray-700">Gender</label>
+                                        <select name="gender" id="gender" class="mt-1 py-2 px-3 block w-full text-xs md:text-sm border-gray-300 focus:border-slate-800 transition-all border outline-none rounded-md" disabled>
+                                            <option value="male">Male</option>
+                                            <option value="female">Female</option>
+                                        </select>
+                                    </div>
+                                    <div class="mt-4 col-span-8">
+                                        <label for="condition" class="block text-sm font-medium text-gray-700">Condition</label>
+                                        <select name="condition" id="condition" class="mt-1 py-2 px-3 block w-full text-xs md:text-sm border-gray-300 focus:border-slate-800 transition-all border outline-none rounded-md" disabled>
+                                            <option value="verygood">New</option>
+                                            <option value="good">Good</option>
+                                            <option value="bad">Bad</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    
                 </div>
             </main>
             <footer class="border-t p-4 pb-3 text-xs bg-gray-100">

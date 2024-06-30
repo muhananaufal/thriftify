@@ -8,6 +8,7 @@
         <div class="px-8 py-12" x-data="{ tab: 'all' }">
             <div class="flex flex-col md:flex-row gap-4 md:gap-0 md:justify-between items-center">
                 <h1 class="font-bold text-2xl">List Products</h1>
+
                 <div class="flex gap-5 items-center">
                     <!-- search bar -->
                     {{-- <form action="">

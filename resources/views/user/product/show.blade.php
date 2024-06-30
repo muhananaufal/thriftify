@@ -1,6 +1,6 @@
 @extends('layouts.user_layout')
 
-@section('title', 'Checkout')
+@section('title', 'Product Detail')
 
 @section('content')
 

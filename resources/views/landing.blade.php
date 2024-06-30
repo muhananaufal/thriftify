@@ -1,6 +1,7 @@
-@extends('layouts.user_layout')
+@extends(auth()->guard('store')->check() ? 'layouts.store_layout' : 'layouts.user_layout')
 
 @section('title', 'Thriftify')
+
 
 @section('content')
     <!-- Banner Section -->

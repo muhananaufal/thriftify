@@ -137,7 +137,7 @@ Thriftify comes packed with a range of features designed to provide an excellent
 7. **Seed the database**:
 
     ```sh
-    php artisan db:seed --class=CategorySeeder
+    php artisan db:seed
     ```
 
 8. **Compile Assets**:

@@ -1,6 +1,6 @@
 @extends('layouts.store_layout')
 
-@section('title', 'Store Add Product')
+@section('title', 'Store Edit Product')
 
 @section('content')
     <main class="bg-gray-100 mb-auto flex-grow font-poppins">

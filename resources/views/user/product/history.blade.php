@@ -1,6 +1,6 @@
 @extends('layouts.user_layout')
 
-@section('title', 'Checkout')
+@section('title', 'History')
 
 @section('content')
     <main class="bg-gray-100 mb-auto flex-grow font-poppins min-h-screen">

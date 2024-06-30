@@ -8,23 +8,21 @@
       href="../asset/img/logo.png"
       type="image/x-icon"
     />
-    <title>Triftify Homepage</title>
+    <title>Triftify User Profile</title>
 
     <!-- Fonts -->
     <link
       href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
       rel="stylesheet"
     />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" 
-    rel="stylesheet">
 
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.1/dist/cdn.min.js"></script>
 
-    <!-- Custom CSS -->x
+    <!-- Custom CSS -->
     <link href="../src/output.css" rel="stylesheet" />
   </head>
 
-  <body class="bg-gray-100 font-poppins">
+  <body class="bg-gray-100">
         <!-- sidebar -->
         <div class="bg-white sidebar max-h-screen top-0 h-screen w-64 fixed inset-y-0 left-0 transform transition duration-200 ease-in-out z-50"
         x-data="{ open: true }" x-on:togglesidebar.window=" open = !open" x-show="true"
@@ -226,347 +224,199 @@
     </nav>
     <!-- End Top navbar -->
 
-    <!-- Banner Section -->
-    <section class="container relative mx-auto px-4 md:px-8 z-0 mb-8 mt-40 lg:mt-28">
-      <div class="relative rounded-lg overflow-hidden">
-        <ul
-          id="slider"
-          class="relative flex transition-transform duration-700 ease-in-out"
-        >
-          <li class="relative w-full flex-shrink-0">
-            <img
-              src="../asset/banner/banner1.jpg"
-              alt="Image 1"
-              class="rounded-lg shadow-sm w-full h-48 md:h-96 object-cover"
-            />
-          </li>
-          <li class="relative w-full flex-shrink-0">
-            <img
-              src="../asset/banner/banner2.jpg"
-              alt="Image 2"
-              class="rounded-lg w-full h-48 md:h-96 object-cover"
-            />
-          </li>
-          <li class="relative w-full flex-shrink-0">
-            <img
-              src="../asset/banner/banner3.jpg"
-              alt="Image 1"
-              class="rounded-lg shadow-sm w-full h-48 md:h-96 object-cover"
-            />
+    <section class="container mx-auto px-4 py-8 mt-20">
+      <div class="p-6">
+        <!-- Navigation -->
+        <ul class="flex flex-col md:flex-row">
+          <li
+            class="nav-item rounded-t-lg px-4 py-2 mb-2 md:mb-0 md:mr-2 cursor-pointer bg-white"
+          >
+            <span class="block md:inline-block" onclick="BioM()"
+              >Biodata Diri</span
+            >
           </li>
         </ul>
-
-        <!-- Add Navigation -->
+        <!-- Biodata Sections -->
         <div
-          class="absolute px-5 flex bottom-4 left-0 right-0 justify-center items-end space-x-2"
+          class="flex flex-col md:flex-row items-start md:space-x-6 bg-white"
+          id="Biodata"
         >
-          <button
-            aria-current="true"
-            data-testid="spnPageControl0"
-            tabindex="-1"
-            class="p-1 bg-blue-500 text-white rounded-md focus:outline-none"
-          ></button>
-          <button
-            aria-current="false"
-            data-testid="spnPageControl1"
-            tabindex="-1"
-            class="p-1 bg-gray-200 text-gray-800 rounded-md focus:outline-none"
-          ></button>
-          <button
-            aria-current="false"
-            data-testid="spnPageControl2"
-            tabindex="-1"
-            class="p-1 bg-gray-200 text-gray-800 rounded-md focus:outline-none"
-          ></button>
-          <button
-            aria-current="false"
-            data-testid="spnPageControl3"
-            tabindex="-1"
-            class="p-1 bg-gray-200 text-gray-800 rounded-md focus:outline-none"
-          ></button>
-        </div>
-
-        <!-- Navigation Arrows -->
-        <div
-          class="absolute px-5 flex top-1/2 transform -translate-y-1/2 w-full justify-between"
-        >
-          <div class="my-auto">
-            <button
-              onclick="prev()"
-              id="prev"
-              class="p-1 bg-cream rounded-full bg-opacity-45 transition-opacity duration-300 hover:opacity-100 opacity-50"
-            >
-              <img
-                src="../asset/svg/arrow-left.svg"
-                alt="Previous"
-                width="20"
+          <!-- Your Biodata Diri Content Here -->
+          <div
+            class="relative p-4 items-center justify-start mb-6 md:mb-0"
+          >
+            <div class="max-w-xs p-4">
+              <input
+                type="file"
+                id="profilePictureInput"
+                name="profilePicture"
+                accept="image/jpeg, .jpeg, .jpg, image/png, .png"
+                class="hidden"
               />
-            </button>
+              <label for="profilePictureInput" class="cursor-pointer">
+                <img
+                  class="h-auto w-full"
+                  src="https://images.tokopedia.net/img/cache/300/tPxBYm/2023/1/20/00d6ff75-2a9e-4639-9f11-efe55dcd0885.jpg"
+                  alt="Profile Picture"
+                />
+              </label>
+            </div>
           </div>
-          <div class="my-auto">
-            <button
-              onclick="next()"
-              id="next"
-              class="bg-cream rounded-full bg-opacity-45 p-1 transition-opacity duration-300 hover:opacity-100 opacity-50"
-            >
-              <img src="../asset/svg/arrow-right.svg" alt="Next" width="20" />
-            </button>
+          <!-- Personal Data Section -->
+          <div class="relative p-6 w-full">
+            <div class="flex items-center justify-between mb-4">
+              <h2 class="text-xl font-bold">User Profile</h2>
+              <a
+                href="editprofile.html"
+                class="flex items-center gap-1 transition-all text-blue-500 text-sm hover:bg-blue-200 px-3 py-2 rounded-lg"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="16 3 21 8 8 21 3 21 3 16 16 3"></polygon></svg> Edit
+                </a
+              >
+            </div>
+            <table class="min-w-full divide-y divide-gray-200 mb-4">
+              <tbody class="space-y-2">
+                <tr class="grid grid-cols-3 gap-1 md:gap-4 items-center">
+                  <td class="text-left text-xs col-span-3 md:col-span-1 font-bold uppercase text-gray-500">Firstname</td>
+                  <td class="text-left text-sm col-span-3 md:col-span-1">Jhoon</td>
+                </tr>
+                <tr class="grid grid-cols-3 gap-1 md:gap-4 items-center">
+                  <td class="text-left text-xs col-span-3 md:col-span-1 font-bold uppercase text-gray-500">Lastname</td>
+                  <td class="text-left text-sm col-span-3 md:col-span-1">Cena</td>
+                </tr>
+                <tr class="grid grid-cols-3 gap-1 md:gap-4 items-center">
+                  <td class="text-left text-xs col-span-3 md:col-span-1 font-bold uppercase text-gray-500">Date of Birth</td>
+                  <td class="text-left text-sm col-span-3 md:col-span-1">29 June 2024</td>
+                </tr>
+                <tr class="grid grid-cols-3 gap-1 md:gap-4 items-center">
+                  <td class="text-left text-xs col-span-3 md:col-span-1 font-bold uppercase text-gray-500">Gender</td>
+                  <td class="text-left text-sm col-span-3 md:col-span-1">Female</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <div class="flex items-center justify-between mb-4">
+              <h2 class="text-xl font-bold">Contact</h2>
+            </div>
+            <table class="min-w-full divide-y divide-gray-200 mb-4">
+              <tbody class="space-y-2">
+                <tr
+                  class="grid grid-cols-3 gap-1 md:gap-4 items-center md:mb-0"
+                >
+                  <td class="text-left text-xs col-span-3 md:col-span-1 font-bold uppercase text-gray-500">Email</td>
+                  <td class="text-left text-sm col-span-3 md:col-span-2">
+                    john.doe@example.com
+                  </td>
+                </tr>
+                <tr
+                  class="grid grid-cols-3 gap-1 md:gap-4 items-center md:mb-0"
+                >
+                  <td class="text-left text-xs col-span-3 md:col-span-1 font-bold uppercase text-gray-500">Phone</td>
+                  <td class="text-left text-sm col-span-3 md:col-span-2">
+                    +62851234567890
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+
+            <div class="flex items-center justify-between mb-4">
+              <h2 class="text-xl font-bold">Address</h2>
+            </div>
+            <table class="min-w-full divide-y divide-gray-200 mb-4">
+              <tbody class="space-y-2">
+                <tr
+                  class="grid grid-cols-3 gap-1 md:gap-4 items-center md:mb-0"
+                >
+                  <td class="text-left text-xs col-span-3 md:col-span-1 font-bold uppercase text-gray-500">Main Address</td>
+                  <td class="text-left col-span-3 text-sm md:col-span-2">
+                    Jl. Jalan, RT 01 RW 02, Desa, Kecamatan, Kabupaten, Provinsi
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+
+            <div class="border-t border-gray-300 my-6 mx-24" disabled></div>
           </div>
         </div>
-      </div>
-    </section>
 
-    <!-- category filter Section -->
-    <section class="container relative mx-auto px-4 md:px-8">
-      <div class="bg-white p-4 rounded-lg shadow-sm">
-        <!-- Bottom Section Content -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          <div class="flex items-center justify-between cursor-pointer">
-            <img
-              src="../asset/img/man.jpg"
-              alt="Men's Clothing"
-              class="h-12 w-12 ml-4 rounded-full shadow-sm"
-            />
-            <div class="flex-1 ml-2">
-              <p class="font-bold">Men's Clothing</p>
-              <p class="text-gray-600 text-xs md:text-sm">
-                Explore our collection of men's clothing.
-              </p>
-            </div>
-          </div>
-          <div class="flex items-center justify-between cursor-pointer">
-            <img
-              src="../asset/img/woman.jpg"
-              alt="Women's Clothing"
-              class="h-12 w-12 ml-4 rounded-full shadow-sm"
-            />
-            <div class="flex-1 ml-2">
-              <p class="font-bold">Women's Clothing</p>
-              <p class="text-gray-600 text-xs md:text-sm">Discover new styles for women</p>
-            </div>
-          </div>
-          <div class="flex items-center justify-between cursor-pointer">
-            <img
-              src="../asset/img/kids.png"
-              alt="Kids' Clothing"
-              class="h-12 w-12 ml-4 rounded-full shadow-sm"
-            />
-            <div class="flex-1 ml-2">
-              <p class="font-bold">Kids' Clothing</p>
-              <p class="text-gray-600 text-xs md:text-sm">Find the latest trends for kids</p>
-            </div>
-          </div>
-          <div class="flex items-center justify-between cursor-pointer">
-            <img
-              src="../asset/img/acess.jpeg"
-              alt="Accessories"
-              class="h-12 w-12 ml-4 rounded-full shadow-sm"
-            />
-            <div class="flex-1 ml-2">
-              <p class="font-bold">Accessories</p>
-              <p class="text-gray-600 text-xs md:text-sm">
-                Complete your look with stylish accessories
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Garis Pemisah -->
-    <div class="border-t border-gray-300 my-8 mx-24"></div>
-
-    <!-- Section: Produk Terbaru -->
-    <section class="container mx-auto mt-4 px-4 md:px-8">
-      <!-- Produk Terbaru Content -->
-      <div class="mb-4">
-        <h2 class="text-gray-800 font-bold text-xl mb-2 sm:ml-4">Produk Terbaru</h2>
-        <!-- contents -->
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4">
-          <!-- product 1 -->
-          <div class="bg-white rounded-md shadow-sm p-4">
-            <img
-              src="../asset/img/backpack.jpeg"
-              alt="Product"
-              class="w-full rounded-md mb-3 h-32 md:h-52 object-cover"
-            />
-            <h3 class="text-sm md:text-lg font-semibold mb-2 line-clamp-2 leading-[1.3em] text-ellipsis h-[39px] md:h-[52px] overflow-hidden">Backpack Vintage Y2K</h3>
+        <!-- daftar Alamat -->
+        <div class="mx-aut mt-4 hidden" id="Alamat">
+          <div class="p-4">
             <div class="flex items-center justify-between mb-2">
-              <span class="text-gray-600 text-sm">Rp 200.999</span>
-              <!-- <span class="text-red-500 font-bold">-38%</span> -->
-            </div>
-            <p class="text-gray-500 mb-2 text-xs md:text-sm">Backpack vintage</p>
-          </div>
-
-          <!-- product 2 -->
-          <div class="bg-white rounded-md shadow-sm p-4">
-            <img
-              src="../asset/img/clothes.png"
-              alt="Product"
-              class="w-full rounded-md mb-3 h-32 md:h-52 object-cover"
-            />
-            <h3 class="text-sm md:text-lg font-semibold mb-2 line-clamp-2 leading-[1.3em] text-ellipsis h-[39px] md:h-[52px] overflow-hidden">Sepatu Lari Pria Sport</h3>
-            <div class="flex items-center justify-between mb-2">
-              <span class="text-gray-600 text-sm">Rp 350.000</span>
-            </div>
-            <p class="text-gray-500 mb-2 text-xs md:text-sm">Brand Y2K</p>
-          </div>
-
-          <!-- product 3 -->
-          <div class="bg-white rounded-md shadow-sm p-4">
-            <img
-              src="../asset/img/man2.jpeg"
-              alt="Product"
-              class="w-full rounded-md mb-3 h-32 md:h-52 object-cover"
-            />
-            <h3 class="text-sm md:text-lg font-semibold mb-2 line-clamp-2 leading-[1.3em] text-ellipsis h-[39px] md:h-[52px] overflow-hidden">Kaos Necropolis</h3>
-            <div class="flex items-center justify-between mb-2">
-              <span class="text-gray-600 text-sm">Rp 150.000</span>
-            </div>
-            <p class="text-gray-500 mb-2 text-xs md:text-sm">Bahan Berkualitas</p>
-          </div>
-
-          <!-- product 4 -->
-          <div class="bg-white rounded-md shadow-sm p-4">
-            <img
-              src="../asset/img/woman2.jpeg"
-              alt="Product"
-              class="w-full rounded-md mb-3 h-32 md:h-52 object-cover"
-            />
-            <h3 class="text-sm md:text-lg font-semibold mb-2 line-clamp-2 leading-[1.3em] text-ellipsis h-[39px] md:h-[52px] overflow-hidden">Jaket Vintage Brown KAJjfkajdkawdjaiakldsfjakf djladjfalkdjsfkadslkjasdlkja</h3>
-            <div class="flex items-center justify-between mb-2">
-              <span class="text-gray-600 text-sm">Rp 150.000</span>
-              <!-- <span class="text-green-500 font-bold">Good</span> -->
-            </div>
-            <p class="text-gray-500 mb-2 text-xs md:text-sm">Bahan Berkualitas</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Garis Pemisah -->
-    <div class="border-t border-gray-300 my-6 mx-24" disabled></div>
-
-    <!-- Section: Shop -->
-    <section class="container mx-auto mt-2 px-4 md:px-8">
-      <!-- filter -->
-      <div class="flex flex-wrap items-center space-x-2 mb-4 gap-y-3">
-        <!-- Category Filter -->
-        <div class="relative inline-block w-auto text-xs md:text-sm">
-          <select
-            class="block w-full border border-gray-300 rounded-full p-2 focus:outline-none focus:ring focus:border-dark"
-          >
-            <option class="text-gray-400">Category</option>
-            <option>Tops</option>
-            <option>Bottoms</option>
-            <option>Outwear</option>
-            <option>Accessories</option>
-            <option>Footwear</option>
-            <option>Sports</option>
-            <option>Kids</option>
-            <option>Others</option>
-          </select>
-        </div>
-
-        <!-- Gender Filter -->
-        <div class="relative inline-block w-auto text-xs md:text-sm">
-          <select
-            class="block w-full border border-gray-300 rounded-full p-2 focus:outline-none focus:ring focus:border-dark"
-          >
-            <option class="text-gray-400">Gender</option>
-            <option>Male</option>
-            <option>Female</option>
-          </select>
-        </div>
-
-        <!-- Size Filter -->
-        <div class="relative inline-block w-auto text-xs md:text-sm">
-          <select
-            class="block w-full border border-gray-300 rounded-full p-2 focus:outline-none focus:ring focus:border-dark"
-          >
-            <option class="text-gray-400">Size</option>
-            <option>S</option>
-            <option>M</option>
-            <option>L</option>
-            <option>XL</option>
-          </select>
-        </div>
-
-        <!-- Condition Filter -->
-        <div class="relative inline-block w-auto text-xs md:text-sm">
-          <select
-            class="block w-full border border-gray-300 rounded-full p-2 focus:outline-none focus:ring focus:border-dark"
-          >
-            <option class="text-gray-400">Condition</option>
-            <option>Very Good</option>
-            <option>Good</option>
-            <option>Bad</option>
-          </select>
-        </div>
-
-        <!-- Apply Filters Button -->
-        <button class="bg-cream p-1 rounded-full hover:opacity-50 transition">
-          <img src="../asset/svg/check-.svg" alt="" srcset="" />
-        </button>
-      </div>
-
-      <!-- Grid -->
-      <div
-        id="cards-container"
-        class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-4 gap-2 md:gap-4"
-      ></div>
-
-      <div class="container mx-auto px-4 py-8">
-        <div class="flex justify-between items-center mb-4">
-          <div class="flex items-center">
-            <span class="text-gray-700">Jumlah produk per halaman:</span>
-            <span class="ml-4">
+              <h2 class="text-xl font-bold mb-4">Daftar Alamat</h2>
               <a
                 href="#"
-                class="text-dark hover:bg-cream px-2 py-1 rounded"
-                data-items="10"
-                >10</a
+                class="bg-green-400 text-white text-sm shadow px-2 rounded-lg"
+                onclick="openModal('tambahModal')"
+                >Tambah</a
               >
-            </span>
-            <span class="ml-4">
-              <a
-                href="#"
-                class="text-dark hover:bg-cream px-2 py-1 rounded"
-                data-items="20"
-                >20</a
-              >
-            </span>
+            </div>
+            <div class="bg-cream p-4 rounded-lg mb-4 shadow-sm">
+              <div class="flex justify-between items-center">
+                <div>
+                  <span class="text-sm bg-gray-300 px-2 mb-2 rounded-full"
+                    >Utama</span
+                  >
+                  <h2 class="text-lg font-semibold">jhonny</h2>
+                  <p class="text-gray-700">62851234567890</p>
+                  <p class="text-gray-700">
+                    sepertinya kmu memang dari planet lain
+                  </p>
+                  <div class="flex items-center space-x-2 justify-start mt-4">
+                    <button
+                      onclick="openModal('EditModal')"
+                      class="bg-green-300 shadow-sm px-2 rounded-md hover:bg-opacity-40 text-dark"
+                    >
+                      Edit
+                    </button>
+                    <!-- Tombol untuk menghapus alamat -->
+                    <button
+                      onclick="openModal('hapusM')"
+                      class="bg-red-300 shadow-sm px-2 rounded-md hover:bg-opacity-40 text-dark"
+                    >
+                      Hapus
+                    </button>
+                  </div>
+                </div>
+                <img src="../asset/svg/check-.svg" alt="" />
+              </div>
+            </div>
+
+            <div class="bg-white p-4 rounded-lg border shadow-sm">
+              <div class="flex justify-between items-center">
+                <div>
+                  <h2 class="text-lg font-semibold text-gray-700">jhonny</h2>
+                  <p class="text-gray-700">62861234567890</p>
+                  <p class="text-gray-700">
+                    dikirim ke bumi untuk seseorang seprtiku
+                  </p>
+                  <div class="flex items-center space-x-2 justify-start mt-4">
+                    <button
+                      onclick="openModal('EditModal')"
+                      class="bg-green-300 shadow-sm px-2 rounded-md hover:bg-opacity-40 text-dark"
+                    >
+                      Edit
+                    </button>
+                    <!-- Tombol untuk menghapus alamat -->
+                    <button
+                      onclick="openModal('hapusM')"
+                      class="bg-red-300 shadow-sm px-2 rounded-md hover:bg-opacity-40 text-dark"
+                    >
+                      Hapus
+                    </button>
+                  </div>
+                </div>
+                <button
+                  class="bg-green-400 text-white text-sm shadow px-2 rounded-lg"
+                >
+                  Pilih
+                </button>
+              </div>
+            </div>
           </div>
-          <ul class="flex items-center space-x-2">
-            <a
-              id="prevPage"
-              class="px-2 border rounded bg-white hover:bg-cream shadow-sm"
-              href="#"
-            >
-              <img
-                src="../asset/svg/arrow-left.svg"
-                alt="Previous"
-                width="18"
-                class="my-auto py-3"
-              />
-            </a>
-            <a
-              id="nextPage"
-              class="px-2 border rounded bg-white hover:bg-cream shadow-sm"
-              href="#"
-            >
-              <img
-                src="../asset/svg/arrow-right.svg"
-                alt="Next"
-                width="18"
-                class="my-auto py-3"
-              />
-            </a>
-          </ul>
         </div>
       </div>
     </section>
-
     <!-- Garis Pemisah -->
     <div class="border-t border-gray-300 my-6 mx-24" disabled></div>
 
@@ -628,7 +478,6 @@
         </div>
       </div>
     </footer>
-
     <!-- JavaScript -->
     <script src="../src/js/index.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>

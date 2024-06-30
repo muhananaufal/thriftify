@@ -1,73 +1,36 @@
-@extends('layouts.store_layout')
+@extends('layouts.user_layout')
 
-@section('title', 'Store Orders')
+@section('title', 'Checkout')
 
 @section('content')
-    <main class="bg-gray-100 mb-auto flex-grow font-poppins">
+<main class="bg-gray-100 mb-auto flex-grow font-poppins">
         <div class="px-8 py-12" x-data="{ tab: 'needconfirm' }">
-            <h1 class="font-bold text-2xl">{{ $order->user->first_name . ' ' . $order->user->last_name . "'s" }} Order</h1>
-            <h1 class="font-bold text-sm text-slate-500">[INV-0{{ $order->id }}]</h1>
-
-            <div class="grid grid-cols-12 gap-3 mt-6">
-                <div class="col-span-6">
-                    <div class="bg-white py-6 px-8 border border-gray-200 rounded-xl">
-                        <p class="text-xxs md:text-xs font-semibold">Shipping Method</p>
-                        <h1 class="font-bold py-2 text-2xl">{{ $order->shipping_method }}</h1>
-                    </div>
-                </div>
-                <div class="col-span-6">
-                    <div class="bg-white py-6 px-8 border border-gray-200 rounded-xl">
-                        <p class="text-xxs md:text-xs font-semibold">Payment Method</p>
-                        <h1 class="font-bold py-2 text-2xl">
-                            {{ $order->payment_method }}
-                        </h1>
-                    </div>
-                </div>
-                <div class="col-span-12">
-                    <div class="bg-white py-6 px-8 border border-gray-200 rounded-xl">
-                        <p class="text-xxs md:text-xs font-semibold">Payment Method</p>
-                        <h1 class="font-bold py-2 text-2xl">
-                            ${{ $order->total_price }}
-                        </h1>
-                    </div>
-                </div>
-            </div>
+            <h1 class="font-bold text-2xl">Invoice ID #{{ $order->id }}</h1>
+            <p class="text-xxs text-gray-500 pl-">{{ $order->updated_at->format('Y/m/d') }}</p>
+                    <p class="text-sm pl- pt-2">Total price ${{ $order->total_price }}</p>
+                    <p class="text-sm pl- pt-1">Ordered by {{ $order->user->first_name . ' ' . $order->user->last_name }}</p>
+                    <p class="text-sm pl- pt-1">Shipping with {{ $order->shipping_method }}</p>
+                    <p class="text-sm pl- pt-1">Purchase with {{ $order->payment_method }}</p>
+            
 
             <div class="mt-8">
-                <div class="py-3 overflow-x-auto bg-white rounded-xl">
-                    <table class="table-auto w-full min-w-[750px]">
-                        <thead>
-                            <tr class="text-left text-xs">
-                                <th class="px-4 py-2">Product Image</th>
-                                <th class="px-4 py-2">Product Name</th>
-                                <th class="px-4 py-2">Price</th>
-                                <th class="px-4 py-2">Status</th>
-                            </tr>
-                        </thead>
-
-                        <tbody>
-                            @foreach ($order->orderItems as $item)
-                                <tr class="text-sm border-b-2">
-                                    <td class="px-4 py-2">
-                                        <img src="{{ $item->product->picture }}" alt=""
-                                            class="w-20 h-20 object-cover rounded-md">
-                                    </td>
-                                    <td class="px-4 py-2">
-                                        {{ $item->product->name }}
-                                    </td>
-                                    <td class="px-4 py-2">
-                                        {{ $item->price }}
-                                    </td>
-                                    <td class="px-4 py-2">
-                                        <span class="bg-orange-200 text-orange-600 px-2 py-1 rounded-full text-xs">Need
-                                            Confimation</span>
-                                    </td>
-                            @endforeach
-                            </tr>
-                        </tbody>
-                    </table>
+                    
+            <div class="grid grid-cols-12 gap-3">
+                @foreach($order->orderItems as $item)
+                <div class="col-span-12 md:col-span-3">
+                    <div class="bg-white py-6 px-8 border border-gray-200 rounded-xl">
+                        <img src="{{ $item->product->picture }}" alt="profile" class="w-100 h-100 rounded-md">
+                        <p class="text-xl font-semibold pt-2">{{ $item->product->name }}</p>
+                        <p class="text-xs pb-2">Price: ${{ $item->product->price }}</p>
+                        <p class="text-sm pt-1">Category: {{ $item->product->category->name }}</p>
+                        <p class="text-sm pt-1">Gender: {{ $item->product->gender }}</p>
+                        <p class="text-sm pt-1">Condition: {{ $item->product->condition }}</p>
+                        </div>
                 </div>
-            </div>
+                @endforeach
+
+
+
         </div>
     </main>
 @endsection

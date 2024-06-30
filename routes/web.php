@@ -49,7 +49,7 @@ Route::middleware(['auth:store'])->group(function () {
     Route::put('/store/confirmation/{order}/confirm', [StoreConfirmationController::class, 'confirm'])->name('store.confirmation.confirm');
     Route::put('/store/confirmation/{order}/reject', [StoreConfirmationController::class, 'reject'])->name('store.confirmation.reject');
     
-    Route::get('/store/sales/show/{order}', [StoreDashboardController::class, 'order'])->name('store.sales.show');
+    Route::get('/store/order/show/{order}', [StoreDashboardController::class, 'order'])->name('store.order.show');
     Route::get('/store/sales', [StoreSalesController::class, 'index'])->name('store.sales.index');
 });
 
@@ -71,10 +71,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/checkout/show/{order}', [UserProductController::class, 'order'])->name('checkout.show');
     Route::put('/checkout/pay/{order}', [UserCheckoutController::class, 'pay'])->name('checkout.pay');
     Route::get('/confirmation', [UserConfirmationController::class, 'index'])->name('confirmation.index');
-    Route::get('/confirmation/show/{order}', [UserProductController::class, 'order'])->name('confirmation.show');
     Route::put('/confirmation/{order}/reject', [UserConfirmationController::class, 'reject'])->name('confirmation.reject');
     Route::get('/history', [UserHistoryController::class, 'index'])->name('history.index');
-    Route::get('/history/show/{order}', [UserProductController::class, 'order'])->name('history.show');
+    Route::get('/order/show/{order}', [UserProductController::class, 'order'])->name('order.show');
 });
 
 // Routes for Guest

@@ -243,25 +243,21 @@
             >
                 <!-- Your Biodata Diri Content Here -->
                 <div
-                    class="relative p-4 items-center justify-start mb-6 md:mb-0"
+                    class="p-4 items-center justify-start mb-6 md:mb-0"
                 >
                     <div class="max-w-xs p-4">
-                    <label for="picture" id="pictureInput" class="cursor-pointer">
-                        <img
-                        class="h-auto w-full"
-                        src="https://images.tokopedia.net/img/cache/300/tPxBYm/2023/1/20/00d6ff75-2a9e-4639-9f11-efe55dcd0885.jpg"
-                        alt="Profile Picture"
-                        />
-                    </label>
-                    <input type="hidden" name="picture" id="picture">
-                    <button
-                        class="my-4 bg-dark text-cream hover:bg-cream hover:text-dark px-4 py-2 w-full rounded-md shadow-sm"
-                    >
-                        Edit Profile Picture
-                    </button>
-                    <p class="text-xs text-gray-500">
-                        Max file size 2MB. Allowed file types: .jpg, .jpeg, .png
-                    </p>
+                        <div class="mb-6">
+                            <img src="https://images.tokopedia.net/img/cache/300/tPxBYm/2023/1/20/00d6ff75-2a9e-4639-9f11-efe55dcd0885.jpg" class="w-full aspect-square object-cover" id="Img">
+                        </div>
+                        <div class="mb-6 w-full text-center">
+                            <label for="image" class="my-8 bg-dark text-cream hover:bg-cream hover:text-dark px-4 py-2 w-full rounded-md shadow-sm cursor-pointer">
+                                Edit Profile Picture
+                            </label>
+                        </div>
+                        <input type="file" name="image" id="image" class="hidden mt-1 py-2 px-3 w-full text-xs md:text-sm border-gray-300 focus:border-slate-800 transition-all border outline-none rounded-md">
+                        <p class="text-xs text-gray-500">
+                            Max file size 2MB. Allowed file types: .jpg, .jpeg, .png
+                        </p>
                     </div>
                 </div>
                 <!-- Personal Data Section -->
@@ -436,7 +432,28 @@
         </div>
         </footer>
         <!-- JavaScript -->
-        <script src="../src/js/index.js"></script>
+        <script>
+            
+            document.addEventListener("DOMContentLoaded", function() {
+                const imgInput = document.getElementById('image');
+
+                imgInput.addEventListener('change', showImagePrev);
+            });
+
+            function showImagePrev(event) {
+                const imgInput = event.target;
+                const file = imgInput.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        const imagePreview = document.getElementById('Img');
+                        imagePreview.src = e.target.result;
+                        imagePreview.style.display = 'block';
+                    };
+                    reader.readAsDataURL(file);
+                }
+            }
+        </script>
         <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
     </body>
 </html>

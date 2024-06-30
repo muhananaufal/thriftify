@@ -8,10 +8,9 @@
         <div class="p-6 grid gap-5">
             <div>
                 <div class="bg-white py-6 px-8 border border-gray-200 rounded-xl">
-                    <h1 class="font-bold text-2xl">Selamat Datang,<br>{{ auth()->user()->name }}</h1>
-                    <p class="text-sm py-2">Jelajahi koleksi barang-barang unik dan berkualitas yang telah dipilih dengan
-                        cermat dari berbagai tempat. Nikmati pengalaman belanja thrift yang ramah lingkungan dan hemat di
-                        toko kami!</p>
+                    <h1 class="font-bold text-2xl">Welcome,<br>{{ auth()->user()->name }}</h1>
+                    <p class="text-sm py-2">Discover a curated collection of unique, high-quality items from diverse locations. Enjoy an eco-friendly and budget-friendly thrift shopping experience at our store!
+                    </p>
                 </div>
             </div>
 

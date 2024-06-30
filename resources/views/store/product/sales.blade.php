@@ -90,7 +90,7 @@
                                                 class="w-20 h-20 object-cover rounded-md">
                                         </td>
                                         <td class="px-4 py-2">{{ $item->product->name }}</td>
-                                        <td class="px-4 py-2">${{ $order->total_price }}</td>
+                                        <t\d class="px-4 py-2">${{ $order->total_price }}</t>
                                         <td class="px-4 py-2">
                                             {{ $order->updated_at->format('Y/m/d') }}
                                         </td>

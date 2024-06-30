@@ -10,7 +10,7 @@
                 <h1 class="font-bold text-2xl">List Products</h1>
                 <div class="flex gap-5 items-center">
                     <!-- search bar -->
-                    <form action="">
+                    {{-- <form action="">
                         <div class="relative group">
                             <input type="text"
                                 class="form-input rounded-md bg-white text-sm pl-10 py-2.5 ml-5 border-transparent border-none outline-none focus:ring-0 transition-all duration-300 ease-in-out focus:w-60 w-48"
@@ -23,7 +23,8 @@
                                 </svg>
                             </span>
                         </div>
-                    </form>
+                    </form> --}}
+                    
 
                     <a href="{{ route('store.product.create') }}"
                         class="flex items-center gap-3 rounded-lg bg-slate-900 text-white hover:bg-slate-950 transition-all py-3 px-4 cursor-pointer">
@@ -37,31 +38,47 @@
                     </a>
                 </div>
             </div>
-
+            
             <!-- Navtabs -->
-            <div class="flex justify-center md:justify-normal mt-8">
+            <div class="flex justify-center md:justify-normal mt-6">
                 <nav class="flex space-x-4">
                     <a href="#" @click.prevent="tab = 'all'"
-                        :class="{ 'border-b-2 border-slate-800': tab === 'all' }" class="px-4 py-2">All
+                        :class="{ 'border-b-2 border-blue-600': tab === 'all' }" class="px-4 py-2">All
                         <span
                             class="ml-1 text-blue-600 rounded-full text-xs">{{ $products->filter(function ($product) {
                                     return $product->status === 'draft' || $product->status === 'sale';
                                 })->count() }}</span></a>
                     <a href="#" @click.prevent="tab = 'draft'"
-                        :class="{ 'border-b-2 border-slate-800': tab === 'draft' }" class="px-4 py-2">Draft<span
-                            class="ml-1 text-green-600 rounded-full text-xs">{{ $products->filter(function ($product) {
+                        :class="{ 'border-b-2 border-slate-500': tab === 'draft' }" class="px-4 py-2">Draft<span
+                            class="ml-1 text-slate-600 rounded-full text-xs">{{ $products->filter(function ($product) {
                                     return $product->status === 'draft';
                                 })->count() }}</span></a>
                     <a href="#" @click.prevent="tab = 'sale'"
-                        :class="{ 'border-b-2 border-slate-800': tab === 'sale' }" class="px-4 py-2">For Sale <span
+                        :class="{ 'border-b-2 border-green-500': tab === 'sale' }" class="px-4 py-2">For Sale <span
                             class="ml-1 text-green-600 rounded-full text-xs">{{ $products->filter(function ($product) {
                                     return $product->status === 'sale';
                                 })->count() }}</span></a>
                 </nav>
             </div>
-
+            <div class="flex gap-5 items-center mb-4">
+                <!-- search bar -->
+                <form action="" class="mt-8">
+                    <div class="relative group">
+                        <input type="text"
+                            class="form-input rounded-md bg-white text-sm pl-10 py-2.5 border-transparent border-none outline-none focus:ring-0 transition-all duration-300 ease-in-out focus:w-72 w-64"
+                            placeholder="Search..." autocomplete="off">
+                        <span class="absolute left-3 top-2.5">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                            </svg>
+                        </span>
+                    </div>
+                </form>
+            </div>
             <!-- Table -->
-            <div class="mt-8">
+            <div class="mt-3">
                 <div class="py-3 overflow-x-auto bg-white rounded-xl">
                     <table class="table-auto w-full min-w-[750px]">
                         <thead>
@@ -78,7 +95,7 @@
                             <tbody>
                                 @foreach ($products as $product)
                                     @if ($product->status === 'sale' || $product->status === 'draft')
-                                        <tr class="text-sm border-b-2">
+                                        <tr class="text-sm border-b-2 ">
                                             <td class="px-4 py-2">
                                                 <img src="{{ $product->picture }}" alt=""
                                                     class="w-20 h-20 object-cover rounded-md">

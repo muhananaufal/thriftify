@@ -18,12 +18,12 @@
 
 <body>
     <div class="md:flex font-poppins">
-        @include('partials.store_sidebar')
+        @include('partials.user_sidebar')
 
 
         <!-- content -->
         <div class="flex-1 flex-col flex min-h-screen">
-            @include('partials.store_topnav')
+            @include('partials.user_topnav')
 
             @yield('content')
 

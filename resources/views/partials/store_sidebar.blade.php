@@ -5,8 +5,10 @@
 
 
     <header class=" h-[64px] py-6 px-8 md:sticky top-0 z-40">
-        <!-- logo -->
-        <h1 class="font-bold uppercase text-black text-2xl">Thriftify<span class="text-xs">&copy;</span></h1>
+        <a href="{{ route('landing') }}">
+
+            <h1 class="font-bold uppercase text-black text-2xl">Thriftify<span class="text-xs">&copy;</span></h1>
+        </a>
     </header>
 
 

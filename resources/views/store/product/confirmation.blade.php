@@ -6,7 +6,7 @@
     <main class="bg-gray-100 mb-auto flex-grow font-poppins">
         <div class="px-8 py-12" x-data="{ tab: 'needconfirm' }">
             <h1 class="font-bold text-2xl">Orders</h1>
-
+            
             <div class="flex justify-center md:justify-normal mt-8">
                 <nav class="flex space-x-4">
                     <a href="#" @click.prevent="tab = 'needconfirm'"
@@ -35,8 +35,24 @@
                                 })->count() }}</span></a>
                 </nav>
             </div>
-
-            <div class="mt-8">
+            <div class="flex gap-5 items-center mb-4">
+                <!-- search bar -->
+                <form action="" class="mt-8">
+                    <div class="relative group">
+                        <input type="text"
+                            class="form-input rounded-md bg-white text-sm pl-10 py-2.5 border-transparent border-none outline-none focus:ring-0 transition-all duration-300 ease-in-out focus:w-72 w-64"
+                            placeholder="Search..." autocomplete="off">
+                        <span class="absolute left-3 top-2.5">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                            </svg>
+                        </span>
+                    </div>
+                </form>
+            </div>
+            <div class="mt-3">
                 <div class="py-3 overflow-x-auto bg-white rounded-xl">
                     <table class="table-auto w-full min-w-[750px]">
                         <thead>

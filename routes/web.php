@@ -69,7 +69,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/checkout', [UserCheckoutController::class, 'index'])->name('checkout.index');
     Route::post('/checkout', [UserCheckoutController::class, 'checkout'])->name('checkout.process');
     Route::get('/checkout/show/{order}', [UserProductController::class, 'order'])->name('checkout.show');
-    Route::post('/checkout/pay/{order}', [UserCheckoutController::class, 'pay'])->name('checkout.pay');
+    Route::put('/checkout/pay/{order}', [UserCheckoutController::class, 'pay'])->name('checkout.pay');
     Route::get('/confirmation', [UserConfirmationController::class, 'index'])->name('confirmation.index');
     Route::get('/confirmation/show/{order}', [UserProductController::class, 'order'])->name('confirmation.show');
     Route::put('/confirmation/{order}/reject', [UserConfirmationController::class, 'reject'])->name('confirmation.reject');

@@ -25,7 +25,7 @@ class ProfileController extends Controller
 
         // Validate incoming request
         $request->validate([
-            'picture' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Example validation for image upload
+            'picture' => 'nullable|image|mimes:jpeg,png,jpg|max:2048', // Example validation for image upload
             'first_name' => 'required',
             'last_name' => 'required',
             'email' => 'required',

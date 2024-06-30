@@ -65,7 +65,7 @@ Thriftify comes packed with a range of features designed to provide an excellent
 -   Authorization: Role-based access control for different functionalities
 -   Responsiveness: Mobile-friendly design
 -   Live Preview for Upload Image: Preview images before uploading
--   Pagination: Explore page includes pagination for better user experience.
+-   Pagination: Explore page includes pagination for better user experience with limit 20 products.
 -   Poduct Filtering: Users can filter products by category on the explore page.
 
 ## Setup

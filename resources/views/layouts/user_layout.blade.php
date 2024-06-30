@@ -9,8 +9,8 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="./css/style.css">
-    <link rel="shortcut icon" href="{{ asset('img/logo.png') }}" type="image/x-icon">
+        <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+        <link rel="shortcut icon" href="{{ asset('img/logo.png') }}" type="image/x-icon">
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.1/dist/cdn.min.js"></script>
     <title>@yield('title')</title>
     @vite('resources/css/app.css')
@@ -18,30 +18,22 @@
 
 <body>
     <div class="md:flex font-poppins">
-        @auth
-            @include('partials.user_sidebar')
-        @endauth
+        @include('partials.user_sidebar')
 
 
         <!-- content -->
         <div class="flex-1 flex-col flex min-h-screen">
-            @auth
-                @include('partials.user_topnav')
-            @endauth
-            @guest
-                @include('partials.guest_topnav')
-            @endguest
+            @include('partials.user_topnav')
 
             @yield('content')
 
-            @include('partials.user_footer')
+            @include('partials.footer')
+
         </div>
 
     </div>
 
-    <!-- JavaScript -->
     <script src="/js/script.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
 </body>
 
 </html>

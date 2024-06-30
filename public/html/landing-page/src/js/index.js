@@ -114,89 +114,89 @@ setInterval(next, 5000);
 showSlide();
 
 // Fetch items from the API and initialize the page
-fetch("https://fakestoreapi.com/products")
-  .then((res) => res.json())
-  .then((json) => {
-    items = json.map((item) => ({
-      title: item.title,
-      price: `Rp ${item.price.toLocaleString()}0`,
-      location: "Jakarta Pusat",
-      img: item.image,
-    }));
-    renderItems();
-    updatePaginationButtons();
-  });
+// fetch("https://fakestoreapi.com/products")
+//   .then((res) => res.json())
+//   .then((json) => {
+//     items = json.map((item) => ({
+//       title: item.title,
+//       price: `Rp ${item.price.toLocaleString()}0`,
+//       location: "Jakarta Pusat",
+//       img: item.image,
+//     }));
+//     renderItems();
+//     updatePaginationButtons();
+//   });
 
 // pagination
-let items = [];
-let currentPage = 1;
-let itemsPerPage = 10;
+// let items = [];
+// let currentPage = 1;
+// let itemsPerPage = 10;
 
-const cardsContainer = document.getElementById("cards-container");
-const prevPageButton = document.getElementById("prevPage");
-const nextPageButton = document.getElementById("nextPage");
-const itemsLinks = document.querySelectorAll("[data-items]");
+// const cardsContainer = document.getElementById("cards-container");
+// const prevPageButton = document.getElementById("prevPage");
+// const nextPageButton = document.getElementById("nextPage");
+// const itemsLinks = document.querySelectorAll("[data-items]");
 
-itemsLinks.forEach((link) => {
-  link.addEventListener("click", (e) => {
-    e.preventDefault();
-    itemsPerPage = parseInt(link.getAttribute("data-items"));
-    currentPage = 1;
-    renderItems();
-    updatePaginationButtons();
-  });
-});
+// itemsLinks.forEach((link) => {
+//   link.addEventListener("click", (e) => {
+//     e.preventDefault();
+//     itemsPerPage = parseInt(link.getAttribute("data-items"));
+//     currentPage = 1;
+//     renderItems();
+//     updatePaginationButtons();
+//   });
+// });
 
-prevPageButton.addEventListener("click", (e) => {
-  e.preventDefault();
-  if (currentPage > 1) {
-    currentPage--;
-    renderItems();
-    updatePaginationButtons();
-  }
-});
+// prevPageButton.addEventListener("click", (e) => {
+//   e.preventDefault();
+//   if (currentPage > 1) {
+//     currentPage--;
+//     renderItems();
+//     updatePaginationButtons();
+//   }
+// });
 
-nextPageButton.addEventListener("click", (e) => {
-  e.preventDefault();
-  if (currentPage < Math.ceil(items.length / itemsPerPage)) {
-    currentPage++;
-    renderItems();
-    updatePaginationButtons();
-  }
-});
+// nextPageButton.addEventListener("click", (e) => {
+//   e.preventDefault();
+//   if (currentPage < Math.ceil(items.length / itemsPerPage)) {
+//     currentPage++;
+//     renderItems();
+//     updatePaginationButtons();
+//   }
+// });
 
-function renderItems() {
-  cardsContainer.innerHTML = "";
-  const start = (currentPage - 1) * itemsPerPage;
-  const end = start + itemsPerPage;
-  const paginatedItems = items.slice(start, end);
+// function renderItems() {
+//   cardsContainer.innerHTML = "";
+//   const start = (currentPage - 1) * itemsPerPage;
+//   const end = start + itemsPerPage;
+//   const paginatedItems = items.slice(start, end);
 
-  paginatedItems.forEach((item) => {
-    const card = document.createElement("div");
-    card.className = "bg-white p-4 rounded-lg shadow-sm";
-    card.innerHTML = `
-          <img src="${item.img}" alt="${item.title}" class="w-full h-32 md:h-52 object-cover rounded-md mb-4">
-          <h2 class="text-sm md:text-lg font-semibold mb-2 line-clamp-2 leading-[1.3em] text-ellipsis h-[39px] md:h-[52px] overflow-hidden ">${item.title}</h2>
-          <p class="text-gray-600 mb-2 text-sm">${item.price}</p>
-          <p class="text-gray-500 mb-2 text-xs md:text-sm">${item.location}</p>
-      `;
-    cardsContainer.appendChild(card);
-  });
-}
+//   paginatedItems.forEach((item) => {
+//     const card = document.createElement("div");
+//     card.className = "bg-white p-4 rounded-lg shadow-sm";
+//     card.innerHTML = `
+//           <img src="${item.img}" alt="${item.title}" class="w-full h-32 md:h-52 object-cover rounded-md mb-4">
+//           <h2 class="text-sm md:text-lg font-semibold mb-2 line-clamp-2 leading-[1.3em] text-ellipsis h-[39px] md:h-[52px] overflow-hidden ">${item.title}</h2>
+//           <p class="text-gray-600 mb-2 text-sm">${item.price}</p>
+//           <p class="text-gray-500 mb-2 text-xs md:text-sm">${item.location}</p>
+//       `;
+//     cardsContainer.appendChild(card);
+//   });
+// }
 
-function updatePaginationButtons() {
-  if (currentPage === 1) {
-    prevPageButton.classList.add("cursor-not-allowed", "opacity-50");
-  } else {
-    prevPageButton.classList.remove("cursor-not-allowed", "opacity-50");
-  }
+// function updatePaginationButtons() {
+//   if (currentPage === 1) {
+//     prevPageButton.classList.add("cursor-not-allowed", "opacity-50");
+//   } else {
+//     prevPageButton.classList.remove("cursor-not-allowed", "opacity-50");
+//   }
 
-  if (currentPage === Math.ceil(items.length / itemsPerPage)) {
-    nextPageButton.classList.add("cursor-not-allowed", "opacity-50");
-  } else {
-    nextPageButton.classList.remove("cursor-not-allowed", "opacity-50");
-  }
-}
+//   if (currentPage === Math.ceil(items.length / itemsPerPage)) {
+//     nextPageButton.classList.add("cursor-not-allowed", "opacity-50");
+//   } else {
+//     nextPageButton.classList.remove("cursor-not-allowed", "opacity-50");
+//   }
+// }
 
 // user profile
 // Fungsi untuk membuka modal berdasarkan ID

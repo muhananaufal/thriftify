@@ -9,7 +9,7 @@ class LandingController extends Controller
 {
     public function index()
     {
-        $products = Product::where('status', 'sale')->get();
+        $products = Product::where('status', 'sale')->latest()->paginate(20);
         return view('landing', compact('products'));
     }
 }

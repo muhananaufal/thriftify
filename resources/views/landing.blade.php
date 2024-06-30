@@ -96,10 +96,10 @@
     <div class="border-t border-gray-300 my-8 mx-24"></div>
 
     <!-- Section: Produk Terbaru -->
-    <section class="container mx-auto mt-4 px-4 md:px-8">
+    {{-- <section class="container mx-auto mt-4 px-4 md:px-8">
         <!-- Produk Terbaru Content -->
         <div class="mb-4">
-            <h2 class="text-gray-800 font-bold text-xl mb-2 sm:ml-4">Produk Terbaru</h2>
+            <h2 class="text-gray-800 font-bold text-xl mb-2 sm:ml-4">Get your product</h2>
             <!-- contents -->
             <div class="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4">
                 <!-- product 1 -->
@@ -157,15 +157,15 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
 
     <!-- Garis Pemisah -->
-    <div class="border-t border-gray-300 my-6 mx-24" disabled></div>
+    {{-- <div class="border-t border-gray-300 my-6 mx-24" disabled></div> --}}
 
     <!-- Section: Shop -->
     <section class="container mx-auto mt-2 px-4 md:px-8">
         <!-- filter -->
-        <div class="flex flex-wrap items-center space-x-2 mb-4 gap-y-3">
+        {{-- <div class="flex flex-wrap items-center space-x-2 mb-4 gap-y-3">
             <!-- Category Filter -->
             <div class="relative inline-block w-auto text-xs md:text-sm">
                 <select
@@ -219,15 +219,15 @@
             <button class="bg-cream p-1 rounded-full hover:opacity-50 transition">
                 <img src="../asset/svg/check-.svg" alt="" srcset="" />
             </button>
-        </div>
+        </div> --}}
 
         <!-- Grid -->
         <div id="cards-container"
-            class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-4 gap-2 md:gap-4">
+            class="mb-8 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-4 gap-2 md:gap-4">
             @foreach ($products as $product)
                 <div class="bg-white p-4 rounded-lg shadow-md">
                     <a href="{{ route('product.show', $product->id) }}">
-                        <img src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg" alt="{{ $product->name }}"
+                        <img src="{{ $product->picture }}" alt="{{ $product->name }}"
                             class="w-full h-48 object-cover rounded-md mb-4">
                         <h2 class="text-lg font-semibold mb-2">{{ $product->name }}</h2>
                         <p class="text-gray-600 mb-2">{{ $product->price }}</p>
@@ -236,8 +236,12 @@
                 </div>
             @endforeach
         </div>
+        <div class="pagination_on_landing">
 
-        <div class="container mx-auto px-4 py-8">
+            {{ $products->links() }}
+        </div>
+        <div class="mb-32"></div>
+        {{-- <div class="container mx-auto px-4 py-8">
             <div class="flex justify-between items-center mb-4">
                 <div class="flex items-center">
                     <span class="text-gray-700">Jumlah produk per halaman:</span>
@@ -257,6 +261,6 @@
                     </a>
                 </ul>
             </div>
-        </div>
+        </div> --}}
     </section>
 @endsection

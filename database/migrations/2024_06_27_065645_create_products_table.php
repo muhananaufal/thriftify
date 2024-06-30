@@ -18,7 +18,6 @@ return new class extends Migration
             $table->string('name');
             $table->decimal('price');
             $table->string('description');
-            $table->string('color');
             $table->string('gender');
             $table->string('size');
             $table->string('quantity')->default(1);

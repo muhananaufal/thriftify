@@ -12,7 +12,9 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        return view('store.dashboard');
+        $orders = Order::all();
+
+        return view('store.dashboard', compact('orders'));
     }
     public function order(Order $order)
     {
@@ -23,6 +25,6 @@ class DashboardController extends Controller
 
         $order->load('orderItems.product');
 
-        return view('user.product.order', compact('order'));
+        return view('store.product.order', compact('order'));
     }
 }

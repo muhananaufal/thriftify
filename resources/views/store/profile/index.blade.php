@@ -1,46 +1,57 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.store_layout')
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
-  <title>Visual - Mobile Phone Marketplace</title>
-</head>
+@section('title', 'Store Profile')
 
-<body>
+@section('content')
+    <main class="bg-gray-100 mb-auto flex-grow font-poppins">
+        <div class="px-8 py-12">
+            <h1 class="font-bold text-2xl">Store Profile</h1>
+            <div class="w-full mt-8">
+                <div class="bg-white p-10 rounded-lg shadow-md">
+                    <div class="my-4">
+                        <div class="flex justify-between gap-3 items-start">
+                            <img src="{{ auth()->user()->picture }}" alt="profile" class="w-24 h-24 rounded-full">
 
-<div class="container py-5 my-5 min-vh-100">
-  @if (Session::get('login_failed'))
-<p class="alert alert-danger">{{Session::get('login_failed')}}</p>
-@endif
-@if (Session::get('logout'))
-<p class="alert alert-danger">{{Session::get('logout')}}</p>
-@endif
-@if (Session::get('register'))
-<p class="alert alert-success">{{Session::get('register')}}</p>
-@endif
+                            <div class="mt-6">
+                                <a href="{{ route('store.profile.edit') }}"
+                                    class="text-blue-500 transition-all hover:bg-blue-100 px-4 py-2 rounded-md flex gap-2 items-center"><svg
+                                        xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <polygon points="16 3 21 8 8 21 3 21 3 16 16 3"></polygon>
+                                    </svg> Edit</a>
+                            </div>
+                        </div>
+                    </div>
 
-<div class="container">
-      <p>
-        ini halaman profile
-        </p>
-          <img src="{{ auth()->user()->picture }}" alt="" class="w-25">
-          <h1 class="fw-bold"><span class="text-info">{{auth()->user()->first_name}}</span><br>{{auth()->user()->last_name}}</h1>
-          <p class="text-info small">{{auth()->user()->name}}</p>
-          <p class="text-info small">{{auth()->user()->email}}</p>
-          <p class="text-info small">{{auth()->user()->bio}}</p>
-          <p class="text-info small">{{auth()->user()->location}}</p>
-          <a href="{{ route('store.profile.edit') }}" class="btn btn-outline-primary">Edit profile</a>
-      <a href="{{route('store.logout')}}" class="btn btn-danger text-white">Log out</a>
-
-    {{-- </div> --}}
-</div>
-</div>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-</body>
-
-</html>
+                    <div class="grid grid-cols-9 gap-4">
+                        <div class="col-span-9 md:col-span-3 mt-4">
+                            <label for="name" class="text-xs font-bold uppercase text-gray-400">Name</label>
+                            <input type="text" id="name"
+                                class="form-input w-full mt-1 py-3 px-2 border border-gray-200 outline-none rounded-lg text-xs md:text-sm"
+                                value="{{ auth()->user()->name }}" disabled>
+                        </div>
+                        <div class="col-span-9 md:col-span-3 mt-4">
+                            <label for="email" class="text-xs font-bold uppercase text-gray-400">Location</label>
+                            <input type="email" id="email"
+                                class="form-input w-full mt-1 py-3 px-2 border border-gray-200 outline-none rounded-lg text-xs md:text-sm"
+                                value="{{ auth()->user()->location }}" disabled>
+                        </div>
+                        <div class="col-span-9 md:col-span-3 mt-4">
+                            <label for="email" class="text-xs font-bold uppercase text-gray-400">Email</label>
+                            <input type="email" id="email"
+                                class="form-input w-full mt-1 py-3 px-2 border border-gray-200 outline-none rounded-lg text-xs md:text-sm"
+                                value="{{ auth()->user()->email }}" disabled>
+                        </div>
+                        <div class="col-span-9 mt-4">
+                            <label for="bio" class="text-xs font-bold uppercase text-gray-400">Bio</label>
+                            <textarea name="bio" id="bio"
+                                class="form-textarea w-full mt-1 py-3 px-2 border border-gray-200 outline-none rounded-lg text-xs md:text-sm"
+                                rows="10" disabled>{{ auth()->user()->bio }}</textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+@endsection

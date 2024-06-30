@@ -15,7 +15,7 @@ class ProductController extends Controller
 
         return view('user.product.show', compact('product'));
     }
-    
+
     public function order(Order $order)
     {
         if ($order->user_id !== auth()->id()) {
@@ -27,5 +27,4 @@ class ProductController extends Controller
 
         return view('user.product.order', compact('order'));
     }
-
 }

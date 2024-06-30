@@ -14,8 +14,9 @@ class ConfirmationController extends Controller
     public function index()
     {
         $storeId = Auth::guard('store')->user()->id;
+        $statuses = ['need_confirmation', 'on_delivery', 'success', 'sale'];
         $orders = Order::where('store_id', $storeId)
-            ->where('status', 'need_confirmation')
+            ->whereIn('status', $statuses)
             ->get();
 
         return view('store.product.confirmation', compact('orders'));

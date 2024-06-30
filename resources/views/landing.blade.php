@@ -240,7 +240,7 @@
 
             {{ $products->links() }}
         </div>
-        <div class="mb-32"></div>
+        <div class="mb-16"></div>
         {{-- <div class="container mx-auto px-4 py-8">
             <div class="flex justify-between items-center mb-4">
                 <div class="flex items-center">

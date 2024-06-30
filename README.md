@@ -61,11 +61,12 @@ Thriftify comes packed with a range of features designed to provide an excellent
 
 ### 10. Other
 
--   Slug
--   Validation
--   Authorization
--   Responsiveness
--   Live Preview for Upload Store Logo
+-   Validation: Comprehensive validation for inputs
+-   Authorization: Role-based access control for different functionalities
+-   Responsiveness: Mobile-friendly design
+-   Live Preview for Upload Image: Preview images before uploading
+-   Pagination: Explore page includes pagination for better user experience.
+-   Poduct Filtering: Users can filter products by category on the explore page.
 
 ## Setup
 
@@ -121,37 +122,43 @@ Thriftify comes packed with a range of features designed to provide an excellent
     php artisan key:generate
     ```
 
-5. **Run migrations**:
+5. **Create symbolic link for storage**:
+
+    ```sh
+    php artisan storage:link
+    ```
+
+6. **Run migrations**:
 
     ```sh
     php artisan migrate
     ```
 
-6. **Seed the database**:
+7. **Seed the database**:
 
     ```sh
     php artisan db:seed --class=CategorySeeder
     ```
 
-7. **Compile Assets**:
+8. **Compile Assets**:
 
     ```sh
     npm run dev
     ```
 
-8. **Start the development server**:
+9. **Start the development server**:
 
     ```sh
     php artisan serve
     ```
 
-9. **Run queue worker**:
+10. **Run queue worker**:
 
     ```sh
     php artisan queue:work
     ```
 
-10. **Access the application**:
+11. **Access the application**:
     - Open your browser and go to `http://127.0.0.1:8000`
 
 ## Usage

@@ -90,7 +90,7 @@
                             <div class="max-w-xs rounded-full flex items-center text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
                                 id="user-menu-button" aria-expanded="false" aria-haspopup="true">
                                 <span class="sr-only">Open user menu</span>
-                                <img class="h-8 w-8 rounded-full" src="{{ auth()->user()->picture }}" alt="">
+                                <img class="h-8 w-8 rounded-full" src="{{ auth()->guard('store')->user()->picture }}" alt="">
                             </div>
                         </div>
 

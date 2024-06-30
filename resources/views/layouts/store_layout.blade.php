@@ -18,12 +18,18 @@
 
 <body>
     <div class="md:flex font-poppins">
+        @auth('store')
         @include('partials.store_sidebar')
+            
+        @endauth
 
 
         <!-- content -->
         <div class="flex-1 flex-col flex min-h-screen">
+            @auth('store')
+                
             @include('partials.store_topnav')
+            @endauth
 
             @yield('content')
 

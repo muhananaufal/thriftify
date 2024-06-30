@@ -18,7 +18,10 @@
 
 <body>
     <div class="md:flex font-poppins">
+        @auth
+            
         @include('partials.user_sidebar')
+        @endauth
 
 
         <!-- content -->

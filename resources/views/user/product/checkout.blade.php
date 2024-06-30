@@ -103,7 +103,7 @@
                                                     x-transition:leave-end="transform opacity-0 scale-95"
                                                     role="menu" aria-orientation="vertical"
                                                     aria-labelledby="user-menu-button" tabindex="-1">
-                                                    <a href="{{ route('store.confirmation.show', $order->id) }}"
+                                                    <a href="{{ route('order.show', $order->id) }}"
                                                         class="flex gap-2 items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"role="menuitem"
                                                         tabindex="-1" id="user-menu-item-0">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="20"

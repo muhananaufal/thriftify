@@ -20,8 +20,8 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Store::create([
-            'slug' => "Lorem Jogja",
-            'picture' => 'example.jpg',
+            'slug' => "example_store",
+            'picture' => '/img/store_profile.png',
             'name' => 'Example Store',
             'location' => '123 Example St, Example City',
             'bio' => 'This is an example store.',

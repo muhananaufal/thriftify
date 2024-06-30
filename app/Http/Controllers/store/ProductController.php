@@ -15,7 +15,7 @@ class ProductController extends Controller
     // read
     public function index()
     {
-        $products = Product::where('store_id', auth()->user()->id)->latest()->paginate(6);
+        $products = Product::where('store_id', auth()->user()->id)->latest()->paginate(1000);
         // ->where('status', 'published');
 
         return view('store.product.index', [

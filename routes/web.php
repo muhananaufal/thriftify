@@ -48,7 +48,7 @@ Route::middleware(['auth:store'])->group(function () {
     Route::get('/store/confirmation/show/{order}', [StoreDashboardController::class, 'order'])->name('store.confirmation.show');
     Route::put('/store/confirmation/{order}/confirm', [StoreConfirmationController::class, 'confirm'])->name('store.confirmation.confirm');
     Route::put('/store/confirmation/{order}/reject', [StoreConfirmationController::class, 'reject'])->name('store.confirmation.reject');
-    
+
     Route::get('/store/order/show/{order}', [StoreDashboardController::class, 'order'])->name('store.order.show');
     Route::get('/store/sales', [StoreSalesController::class, 'index'])->name('store.sales.index');
 });

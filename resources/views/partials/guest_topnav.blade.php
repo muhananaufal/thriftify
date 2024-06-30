@@ -45,19 +45,10 @@
                     </a>
                 </div>
 
-                <!-- toggel sidebar -->
-                <div class="text-white cursor-pointer hidden md:block" @click="$dispatch('togglesidebar')">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-                        fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <line x1="3" y1="12" x2="21" y2="12"></line>
-                        <line x1="3" y1="6" x2="21" y2="6"></line>
-                        <line x1="3" y1="18" x2="21" y2="18"></line>
-                    </svg>
-                </div>
-
                 <!-- Page Title -->
                 <div class="hidden lg:block px-10">
-                    <h1 class="font-semibold text-xl">Main Menu</h1>
+                    <h1 class="font-bold uppercase text-black text-2xl">Thriftify<span class="text-xs">&copy;</span>
+                    </h1>
                 </div>
             </div>
             <div class="flex items-center">
@@ -82,23 +73,12 @@
                 <!-- Profile Menu DT -->
                 <div class="ml-4 flex md:ml-6">
 
-                    <!-- Profile dropdown -->
-                    <div class="relative px-4 text-gray-400 hover:text-white text-sm cursor-pointer"
-                        x-data="{ open: false }">
+                    <!-- User dropdown -->
+                    <div class="relative px-2 text-sm cursor-pointer" x-data="{ open: false }">
                         <div class="flex items-center min-h-full" @click="open = !open">
 
-                            <div class="max-w-xs rounded-full flex items-center text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
-                                id="user-menu-button" aria-expanded="false" aria-haspopup="true">
-                                <span class="sr-only">Open user menu</span>
-                                @if (!auth()->user() || auth()->user()->picture === '')
-                                    <img class="h-8 w-8 rounded-full"
-                                        src="https://i.pinimg.com/originals/d9/d8/8e/d9d88e3d1f74e2b8ced3df051cecb81d.jpg"
-                                        alt="">
-                                @else
-                                    <img class="h-8 w-8 rounded-full" src="{{ auth()->user()->picture }}"
-                                        alt="">
-                                @endif
-                            </div>
+                            <button class="bg-black text-white rounded py-2 px-5">User</button>
+
                         </div>
 
                         <div x-show="open" @click.away="open = false"
@@ -110,14 +90,42 @@
                             x-transition:leave-start="transform opacity-100 scale-100"
                             x-transition:leave-end="transform opacity-0 scale-95" role="menu"
                             aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
-                            <a href="{{ route('profile.index') }}"
+                            <a href="{{ route('login') }}"
                                 class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem"
-                                tabindex="-1" id="user-menu-item-0">My Profile<a>
+                                tabindex="-1" id="user-menu-item-0">Login<a>
 
-                                    <a href="{{ route('logout') }}"
+                                    <a href="{{ route('register') }}"
+                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem"
+                                        tabindex="-1" id="user-menu-item-1">Register</a>
+                                </a>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Store dropdown -->
+                    <div class="relative px-2 text-sm cursor-pointer" x-data="{ open: false }">
+                        <div class="flex items-center min-h-full" @click="open = !open">
+
+                            <button class="bg-black text-white rounded py-2 px-5">Store</button>
+
+                        </div>
+
+                        <div x-show="open" @click.away="open = false"
+                            class="origin-top-right absolute right-0 mt-0 rounded-b-md py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none w-[200px] shadow-md"
+                            x-transition:enter="transition ease-out duration-100"
+                            x-transition:enter-start="transform opacity-0 scale-95"
+                            x-transition:enter-end="transform opacity-100 scale-100"
+                            x-transition:leave="transition ease-in duration-75"
+                            x-transition:leave-start="transform opacity-100 scale-100"
+                            x-transition:leave-end="transform opacity-0 scale-95" role="menu"
+                            aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
+                            <a href="{{ route('store.login') }}"
+                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem"
+                                tabindex="-1" id="user-menu-item-0">Login<a>
+
+                                    <a href="{{ route('store.register') }}"
                                         class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                                        role="menuitem" tabindex="-1" id="user-menu-item-1">Sign
-                                        out</a>
+                                        role="menuitem" tabindex="-1" id="user-menu-item-1">Register</a>
                                 </a>
                             </a>
                         </div>

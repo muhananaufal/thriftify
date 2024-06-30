@@ -18,23 +18,30 @@
 
 <body>
     <div class="md:flex font-poppins">
-        @include('partials.user_sidebar')
+        @auth
+            @include('partials.user_sidebar')
+        @endauth
 
 
         <!-- content -->
         <div class="flex-1 flex-col flex min-h-screen">
-            @include('partials.user_topnav')
+            @auth
+                @include('partials.user_topnav')
+            @endauth
+            @guest
+                @include('partials.guest_topnav')
+            @endguest
 
             @yield('content')
 
-            <footer class="border-t p-4 pb-3 text-xs bg-gray-100">
-                2024 © Design & Develop by Thriftify Dev Team.
-            </footer>
+            @include('partials.user_footer')
         </div>
 
     </div>
 
+    <!-- JavaScript -->
     <script src="/js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
 </body>
 
 </html>

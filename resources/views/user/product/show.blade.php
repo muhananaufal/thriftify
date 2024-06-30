@@ -97,16 +97,17 @@
               />
             </div>
             <div>
-              <p class="text-gray-600 text-xs md:text-lg">
-                <strong>Store Name:</strong> {{ $product->store->name }}
-              </p>
-              <p class="text-gray-600 text-xs md:text-lg">
+              <p class="text-gray-600 text-sm md:text-base ">
+                  <strong>Store Name:</strong>
+                {{ $product->store->name }}
+            </p>
+            <p class="text-gray-600 text-sm md:text-base">
                 <strong>Location:</strong> {{ $product->store->location }}
               </p>
-              {{-- <p class="text-gray-600 text-xs md:text-lg">
+              {{-- <p class="text-gray-600 text-sm md:text-base">
                 <strong>Contact:</strong> (123) 456-7890
               </p> --}}
-              <p class="text-gray-600 text-xs md:text-lg">
+              <p class="text-gray-600 text-sm md:text-base">
                 <strong>Email:</strong> {{ $product->store->email }}
               </p>
             </div>

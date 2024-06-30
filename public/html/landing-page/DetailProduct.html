@@ -8,15 +8,13 @@
       href="../asset/img/logo.png"
       type="image/x-icon"
     />
-    <title>Triftify Homepage</title>
+    <title>Triftify User Profile</title>
 
     <!-- Fonts -->
     <link
       href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
       rel="stylesheet"
     />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" 
-    rel="stylesheet">
 
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.1/dist/cdn.min.js"></script>
 
@@ -24,7 +22,7 @@
     <link href="../src/output.css" rel="stylesheet" />
   </head>
 
-  <body class="bg-gray-100 font-poppins">
+  <body class="bg-gray-100">
         <!-- sidebar -->
         <div class="bg-white sidebar max-h-screen top-0 h-screen w-64 fixed inset-y-0 left-0 transform transition duration-200 ease-in-out z-50"
         x-data="{ open: true }" x-on:togglesidebar.window=" open = !open" x-show="true"
@@ -226,146 +224,139 @@
     </nav>
     <!-- End Top navbar -->
 
-    <!-- Banner Section -->
-    <section class="container relative mx-auto px-4 md:px-8 z-0 mb-8 mt-40 lg:mt-28">
-      <div class="relative rounded-lg overflow-hidden">
-        <ul
-          id="slider"
-          class="relative flex transition-transform duration-700 ease-in-out"
-        >
-          <li class="relative w-full flex-shrink-0">
+    <section class="container mx-auto relative px-8 z-0 mb-8 mt-28">
+      <div class="flex flex-wrap">
+        <!-- Image Gallery -->
+        <div class="w-full md:w-1/2">
+          <div class="flex flex-col">
             <img
-              src="../asset/banner/banner1.jpg"
-              alt="Image 1"
-              class="rounded-lg shadow-sm w-full h-48 md:h-96 object-cover"
+              src="../asset/img/clothes.png"
+              alt="Product Image"
+              class="w-full mb-4"
             />
-          </li>
-          <li class="relative w-full flex-shrink-0">
-            <img
-              src="../asset/banner/banner2.jpg"
-              alt="Image 2"
-              class="rounded-lg w-full h-48 md:h-96 object-cover"
-            />
-          </li>
-          <li class="relative w-full flex-shrink-0">
-            <img
-              src="../asset/banner/banner3.jpg"
-              alt="Image 1"
-              class="rounded-lg shadow-sm w-full h-48 md:h-96 object-cover"
-            />
-          </li>
-        </ul>
-
-        <!-- Add Navigation -->
-        <div
-          class="absolute px-5 flex bottom-4 left-0 right-0 justify-center items-end space-x-2"
-        >
-          <button
-            aria-current="true"
-            data-testid="spnPageControl0"
-            tabindex="-1"
-            class="p-1 bg-blue-500 text-white rounded-md focus:outline-none"
-          ></button>
-          <button
-            aria-current="false"
-            data-testid="spnPageControl1"
-            tabindex="-1"
-            class="p-1 bg-gray-200 text-gray-800 rounded-md focus:outline-none"
-          ></button>
-          <button
-            aria-current="false"
-            data-testid="spnPageControl2"
-            tabindex="-1"
-            class="p-1 bg-gray-200 text-gray-800 rounded-md focus:outline-none"
-          ></button>
-          <button
-            aria-current="false"
-            data-testid="spnPageControl3"
-            tabindex="-1"
-            class="p-1 bg-gray-200 text-gray-800 rounded-md focus:outline-none"
-          ></button>
-        </div>
-
-        <!-- Navigation Arrows -->
-        <div
-          class="absolute px-5 flex top-1/2 transform -translate-y-1/2 w-full justify-between"
-        >
-          <div class="my-auto">
-            <button
-              onclick="prev()"
-              id="prev"
-              class="p-1 bg-cream rounded-full bg-opacity-45 transition-opacity duration-300 hover:opacity-100 opacity-50"
-            >
+            <!-- <div class="flex space-x-4 rounded-md shadow-lg">
               <img
-                src="../asset/svg/arrow-left.svg"
-                alt="Previous"
-                width="20"
+                src="../asset/img/clothes.png"
+                alt="Thumbnail"
+                class="w-20 h-20"
               />
+              <img
+                src="../asset/img/clothes.png"
+                alt="Thumbnail"
+                class="w-20 h-20"
+              />
+              <img
+                src="../asset/img/clothes.png"
+                alt="Thumbnail"
+                class="w-20 h-20"
+              />
+              <img
+                src="../asset/img/clothes.png"
+                alt="Thumbnail"
+                class="w-20 h-20"
+              />
+            </div> -->
+          </div>
+        </div>
+        <!-- Product Details -->
+        <div class="w-full md:w-1/2">
+          <h1 class="text-3xl font-bold mt-8">Kaos Urban Streetwear Tee</h1>
+          <div class="flex items-center mt-2 mb-4">
+            <span class="text-red-500 line-through mr-2">Rp 150.000</span>
+            <span class="text-red-600 text-xl font-semibold">Rp 100.000</span>
+          </div>
+          <p class="text-gray-600 mb-4 text-xs md:text-sm">
+            Kaos streetwear dengan desain modern yang trendi. Cocok untuk gaya
+            kasual dan aktivitas outdoor. Material yang digunakan adalah
+            campuran katun dan poliester.
+          </p>
+          <div class="flex items-center space-x-4 mt-12">
+            <button
+              class="bg-dark text-white px-6 py-2 border hover:border-dark hover:bg-gray-50 hover:text-dark rounded-md mb-4 text-sm w-full"
+            >
+              Add to Cart
+            </button>
+            <button
+              class="bg-cream text-dark px-6 py-2 border hover:border-dark hover:bg-gray-50 rounded-md mb-4 text-sm w-full"
+            >
+              Buy Now
             </button>
           </div>
-          <div class="my-auto">
-            <button
-              onclick="next()"
-              id="next"
-              class="bg-cream rounded-full bg-opacity-45 p-1 transition-opacity duration-300 hover:opacity-100 opacity-50"
-            >
-              <img src="../asset/svg/arrow-right.svg" alt="Next" width="20" />
-            </button>
+          <div class="flex items-center space-x-4 text-xs md:text-s,">
+            <span>Categories: </span>
+            <a href="#" class="text-gray-600 hover:text-gray-900">Vintage</a>
+            <a href="#" class="text-gray-600 hover:text-gray-900">Y2K</a>
+          </div>
+          <div class="flex items-center space-x-4 mt-4 text-xs md:text-s,">
+            <span>Tags: </span>
+            <a href="#" class="text-gray-600 hover:text-gray-900">T-shirt</a>
+            <a href="#" class="text-gray-600 hover:text-gray-900">Good</a>
           </div>
         </div>
       </div>
-    </section>
+      <!-- Description and Reviews -->
+      <div class="mt-8">
+        <ul class="flex border-b">
+          <li class="mr-1">
+            <a
+              class="bg-cream cursor-pointer inline-block py-2 px-4 text-gray-600 hover:text-gray-800 font-semibold text-sm"
+              onclick="showDescription()"
+              >Description</a
+            >
+          </li>
+          <!-- <li class="mr-1">
+            <a
+              class="bg-cream cursor-pointer inline-block py-2 px-4 text-gray-600 hover:text-gray-800 font-semibold text-sm"
+              onclick="showReviews()"
+              >Reviews <span>(1)</span></a
+            >
+          </li> -->
+        </ul>
+        <div id="description" class="py-4 text-xs md:text-sm">
+          <p>
+            Kaos dengan gaya thrift yang menghadirkan nuansa retro dan vintage
+            yang unik. Desain grafis yang mencerminkan era 80-an dengan
+            kombinasi warna yang kontras dan mencolok. Bahan katun ringan yang
+            memberikan kenyamanan maksimal saat dipakai sehari-hari. Cocok untuk
+            mereka yang menyukai gaya unik dan ingin tampil beda dengan pakaian
+            yang menceritakan cerita masa lalu.
+          </p>
+        </div>
+        <!-- <div id="reviews" class="py-4 hidden text-xs md:text-sm">
+          <p>
+            Kaos ini benar-benar sesuai dengan ekspektasi saya. Desainnya unik
+            dan warnanya vibrant. Bahan katunnya lembut dan tidak membuat gerah.
+            Bagus untuk dipakai casual maupun santai.
+          </p>
+        </div> -->
+        <div class="border-t border-gray-300 my-6 mx-24" disabled></div>
 
-    <!-- category filter Section -->
-    <section class="container relative mx-auto px-4 md:px-8">
-      <div class="bg-white p-4 rounded-lg shadow-sm">
-        <!-- Bottom Section Content -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          <div class="flex items-center justify-between cursor-pointer">
-            <img
-              src="../asset/img/man.jpg"
-              alt="Men's Clothing"
-              class="h-12 w-12 ml-4 rounded-full shadow-sm"
-            />
-            <div class="flex-1 ml-2">
-              <p class="font-bold">Men's Clothing</p>
-              <p class="text-gray-600 text-xs md:text-sm">
-                Explore our collection of men's clothing.
+        <!-- Store Information -->
+
+        <div class="mt-4 border-t pt-4">
+          <h2 class="text-2xl font-bold mb-2">Store Information</h2>
+          <div class="flex gap-5 item-center my-5">
+            <div class="drop-shadow-sm">
+              <img
+                src="../asset/img/Bucket-Hat.jpeg"
+                alt=""
+                srcset=""
+                class="h-20 w-20 aspect-square object-cover rounded-full"
+              />
+            </div>
+            <div>
+              <p class="text-gray-600 text-sm md:text-lg">
+                <strong>Store Name:</strong> Awesome Shoe Store
               </p>
-            </div>
-          </div>
-          <div class="flex items-center justify-between cursor-pointer">
-            <img
-              src="../asset/img/woman.jpg"
-              alt="Women's Clothing"
-              class="h-12 w-12 ml-4 rounded-full shadow-sm"
-            />
-            <div class="flex-1 ml-2">
-              <p class="font-bold">Women's Clothing</p>
-              <p class="text-gray-600 text-xs md:text-sm">Discover new styles for women</p>
-            </div>
-          </div>
-          <div class="flex items-center justify-between cursor-pointer">
-            <img
-              src="../asset/img/kids.png"
-              alt="Kids' Clothing"
-              class="h-12 w-12 ml-4 rounded-full shadow-sm"
-            />
-            <div class="flex-1 ml-2">
-              <p class="font-bold">Kids' Clothing</p>
-              <p class="text-gray-600 text-xs md:text-sm">Find the latest trends for kids</p>
-            </div>
-          </div>
-          <div class="flex items-center justify-between cursor-pointer">
-            <img
-              src="../asset/img/acess.jpeg"
-              alt="Accessories"
-              class="h-12 w-12 ml-4 rounded-full shadow-sm"
-            />
-            <div class="flex-1 ml-2">
-              <p class="font-bold">Accessories</p>
-              <p class="text-gray-600 text-xs md:text-sm">
-                Complete your look with stylish accessories
+              <p class="text-gray-600 text-sm md:text-lg">
+                <strong>Location:</strong> 123 Shoe Street, Footwear City,
+                Country
+              </p>
+              <p class="text-gray-600 text-sm md:text-lg">
+                <strong>Contact:</strong> (123) 456-7890
+              </p>
+              <p class="text-gray-600 text-sm md:text-lg">
+                <strong>Email:</strong> info@shoesstore.com
               </p>
             </div>
           </div>
@@ -374,13 +365,15 @@
     </section>
 
     <!-- Garis Pemisah -->
-    <div class="border-t border-gray-300 my-8 mx-24"></div>
+    <div class="border-t border-gray-300 my-6 mx-24" disabled></div>
 
     <!-- Section: Produk Terbaru -->
-    <section class="container mx-auto mt-4 px-4 md:px-8">
+    <section class="container mx-auto mt-10 mb-8 px-4 md:px-8">
       <!-- Produk Terbaru Content -->
       <div class="mb-4">
-        <h2 class="text-gray-800 font-bold text-xl mb-2 sm:ml-4">Produk Terbaru</h2>
+        <h2 class="text-gray-800 font-bold text-xl mb-16 flex justify-center">
+          Produk Lainnya
+        </h2>
         <!-- contents -->
         <div class="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4">
           <!-- product 1 -->
@@ -443,132 +436,7 @@
         </div>
       </div>
     </section>
-
-    <!-- Garis Pemisah -->
-    <div class="border-t border-gray-300 my-6 mx-24" disabled></div>
-
-    <!-- Section: Shop -->
-    <section class="container mx-auto mt-2 px-4 md:px-8">
-      <!-- filter -->
-      <div class="flex flex-wrap items-center space-x-2 mb-4 gap-y-3">
-        <!-- Category Filter -->
-        <div class="relative inline-block w-auto text-xs md:text-sm">
-          <select
-            class="block w-full border border-gray-300 rounded-full p-2 focus:outline-none focus:ring focus:border-dark"
-          >
-            <option class="text-gray-400">Category</option>
-            <option>Tops</option>
-            <option>Bottoms</option>
-            <option>Outwear</option>
-            <option>Accessories</option>
-            <option>Footwear</option>
-            <option>Sports</option>
-            <option>Kids</option>
-            <option>Others</option>
-          </select>
-        </div>
-
-        <!-- Gender Filter -->
-        <div class="relative inline-block w-auto text-xs md:text-sm">
-          <select
-            class="block w-full border border-gray-300 rounded-full p-2 focus:outline-none focus:ring focus:border-dark"
-          >
-            <option class="text-gray-400">Gender</option>
-            <option>Male</option>
-            <option>Female</option>
-          </select>
-        </div>
-
-        <!-- Size Filter -->
-        <div class="relative inline-block w-auto text-xs md:text-sm">
-          <select
-            class="block w-full border border-gray-300 rounded-full p-2 focus:outline-none focus:ring focus:border-dark"
-          >
-            <option class="text-gray-400">Size</option>
-            <option>S</option>
-            <option>M</option>
-            <option>L</option>
-            <option>XL</option>
-          </select>
-        </div>
-
-        <!-- Condition Filter -->
-        <div class="relative inline-block w-auto text-xs md:text-sm">
-          <select
-            class="block w-full border border-gray-300 rounded-full p-2 focus:outline-none focus:ring focus:border-dark"
-          >
-            <option class="text-gray-400">Condition</option>
-            <option>Very Good</option>
-            <option>Good</option>
-            <option>Bad</option>
-          </select>
-        </div>
-
-        <!-- Apply Filters Button -->
-        <button class="bg-cream p-1 rounded-full hover:opacity-50 transition">
-          <img src="../asset/svg/check-.svg" alt="" srcset="" />
-        </button>
-      </div>
-
-      <!-- Grid -->
-      <div
-        id="cards-container"
-        class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-4 gap-2 md:gap-4"
-      ></div>
-
-      <div class="container mx-auto px-4 py-8">
-        <div class="flex justify-between items-center mb-4">
-          <div class="flex items-center">
-            <span class="text-gray-700">Jumlah produk per halaman:</span>
-            <span class="ml-4">
-              <a
-                href="#"
-                class="text-dark hover:bg-cream px-2 py-1 rounded"
-                data-items="10"
-                >10</a
-              >
-            </span>
-            <span class="ml-4">
-              <a
-                href="#"
-                class="text-dark hover:bg-cream px-2 py-1 rounded"
-                data-items="20"
-                >20</a
-              >
-            </span>
-          </div>
-          <ul class="flex items-center space-x-2">
-            <a
-              id="prevPage"
-              class="px-2 border rounded bg-white hover:bg-cream shadow-sm"
-              href="#"
-            >
-              <img
-                src="../asset/svg/arrow-left.svg"
-                alt="Previous"
-                width="18"
-                class="my-auto py-3"
-              />
-            </a>
-            <a
-              id="nextPage"
-              class="px-2 border rounded bg-white hover:bg-cream shadow-sm"
-              href="#"
-            >
-              <img
-                src="../asset/svg/arrow-right.svg"
-                alt="Next"
-                width="18"
-                class="my-auto py-3"
-              />
-            </a>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- Garis Pemisah -->
-    <div class="border-t border-gray-300 my-6 mx-24" disabled></div>
+    <div class="border-t border-gray-300 my-8 mx-24" disabled></div>
 
     <footer class="p-8 mx-auto bg-gray-100 text-sm">
       <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 md:gap-8">

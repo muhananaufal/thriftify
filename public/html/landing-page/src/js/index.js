@@ -232,3 +232,12 @@ function DafM() {
   document.getElementById("Biodata").classList.add("hidden");
   document.getElementById("Alamat").classList.remove("hidden");
 }
+
+const imgInput = document.getElementById("pictureInput");
+const imgThumb = document.getElementById("picture");
+
+function showImagePrev() {
+    const file = imgInput.files[0];
+    imgThumb.classList.add("block");
+    imgThumb.src = URL.createObjectURL(file);
+}

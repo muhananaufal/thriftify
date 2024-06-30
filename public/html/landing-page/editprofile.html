@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+        rel="shortcut icon"
+        href="../asset/img/logo.png"
+        type="image/x-icon"
+        />
+        <title>Triftify User Profile</title>
+
+        <!-- Fonts -->
+        <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet"
+        />
+
+        <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.1/dist/cdn.min.js"></script>
+
+        <!-- Custom CSS -->
+        <link href="../src/output.css" rel="stylesheet" />
+    </head>
+
+    <body class="bg-gray-100">
+            <!-- sidebar -->
+            <div class="bg-white sidebar max-h-screen top-0 h-screen w-64 fixed inset-y-0 left-0 transform transition duration-200 ease-in-out z-50"
+            x-data="{ open: true }" x-on:togglesidebar.window=" open = !open" x-show="true"
+            :class="open === false ? 'md:translate-x-0 md:fixed ':'-translate-x-full' ">
+
+
+            <header class=" h-[64px] py-6 px-8 md:sticky top-0 z-40">
+                <!-- logo -->
+                <h1 class="font-bold uppercase text-black text-2xl">Thriftify<span class="text-xs">&copy;</span></h1>
+            </header>
+
+
+            <!-- nav -->
+            <nav class="px-4 pt-4 max-h-[calc(100vh-64px)]" x-data="{selected:'Tasks'}">
+                <ul class="flex flex-col space-y-2">
+
+                    <!-- Section Devider -->
+                    <div class="section pt-4 mb-1 text-xs text-gray-600 uppercase pb-1 pl-3">
+                        Overview
+                    </div>
+                    <!-- ITEM -->
+                    <li class="text-sm">
+                        <a href="index.html"
+                            class="flex items-center w-full py-2 px-4 rounded relative hover:bg-gray-100 ">
+                            <div class="pr-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+                            </div>
+                            <div>Dashboard </div>
+                        </a>
+                    </li>
+
+
+                    <!-- ITEM -->
+                    <li class="text-sm">
+                        <a href="sales.html"
+                            class="flex items-center w-full py-2 px-4 rounded relative hover:bg-gray-100 ">
+                            <div class="pr-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M18.7 8l-5.1 5.2-2.8-2.7L7 14.3"/></svg>
+                            </div>
+                            <div>Sales </div>
+                        </a>
+                    </li>
+
+                    <!-- ITEM -->
+                    <li class="text-sm">
+                        <a href="orders.html"
+                            class="flex items-center w-full py-2 px-4 rounded relative hover:bg-gray-100 ">
+                            <div class="pr-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="20.5" r="1"/><circle cx="18" cy="20.5" r="1"/><path d="M2.5 2.5h3l2.7 12.4a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 2-1.6l1.6-8.4H7.1"/></svg>
+                            </div>
+                            <div>Orders </div>
+                        </a>
+                    </li>
+
+                    <!-- ITEM -->
+                    <li class="text-sm">
+                        <a href="products.html"
+                            class="flex items-center w-full py-2 px-4 rounded relative hover:bg-gray-100 ">
+                            <div class="pr-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg>
+                            </div>
+                            <div>Products </div>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <!-- End sidebar -->
+
+        <!-- Top navbar -->
+        <nav class="fixed w-full py-2 top-0 text-black z-50 bg-white shadow-sm" x-data="{ mobilemenue: false }">
+        <div class="mx-auto ">
+            <div class="flex items-center justify-between px-10 h-16">
+
+                <div class="flex items-center md:hidden gap-3">
+                    <div class="-mr-2 flex" x-data>
+                        <!-- Mobile menu button -->
+                        <button type="button" @click="$dispatch('togglesidebar')"
+                            class=" inline-flex items-center justify-center p-2 rounded-md text-black focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-200 focus:ring-white"
+                            aria-controls="mobile-menu" aria-expanded="false">
+                            <span class="sr-only">Open main menu</span>
+
+                            <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M4 6h16M4 12h16M4 18h16" />
+                            </svg>
+
+                            <svg class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                        </button>
+                    </div>
+
+                    <div class="md:hidden">
+                        <a href="#" class="text-white flex items-center space-x-2 group">
+                            <div>
+                                <h1 class="font-bold uppercase text-black text-xl">Thriftify<span class="text-xs">&copy;</span></h1>
+                            </div>
+                        </a>
+                    </div>
+
+                </div>
+
+                <div class="flex items-center pl-6">
+                    <!-- toggel sidebar -->
+                    <div class="text-white cursor-pointer hidden md:block" @click="$dispatch('togglesidebar')">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                    </div>
+
+                    <!-- Page Title -->
+                    <div class="hidden lg:block px-10">
+                        <h1 class="font-semibold text-xl">Thriftify<span class="text-xs">&copy;</span></h1>
+                    </div>
+                </div>
+
+                <div class="hidden lg:block w-2/3">
+                    <!-- search bar -->
+                    <form action="">
+                        <div class="relative group">
+                            <input type="text"
+                                class="form-input rounded-md bg-gray-200 text-sm pl-10 py-2.5 ml-5 border-transparent border-none outline-none focus:ring-0 transition-all duration-300 ease-in-out w-[85%]"
+                                placeholder="Search: e.g. Jaket Keren Banget Anjay" autocomplete="off">
+                            <span
+                                class="absolute left-8 top-2.5">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none"
+                                    viewBox="0 0 24 24" stroke="#000000">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                                </svg>
+                            </span>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="flex items-center gap-1">
+                    <div>
+                        <a href="" class="">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="20.5" r="1"/><circle cx="18" cy="20.5" r="1"/><path d="M2.5 2.5h3l2.7 12.4a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 2-1.6l1.6-8.4H7.1"/></svg>
+                        </a>
+                    </div>
+
+                    <!-- Profile Menu DT -->
+                    <div class="ml-4 flex md:ml-6">
+
+                        <!-- Profile dropdown -->
+                        <div class="relative px-4 text-gray-400 hover:text-white text-sm cursor-pointer"
+                            x-data="{open: false}">
+                            <div class="flex items-center min-h-full" @click="open = !open">
+
+                                <div class="max-w-xs rounded-full flex items-center text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
+                                    id="user-menu-button" aria-expanded="false" aria-haspopup="true">
+                                    <span class="sr-only">Open user menu</span>
+                                    <img class="h-8 w-8 rounded-full"
+                                        src="https://i.pinimg.com/originals/d9/d8/8e/d9d88e3d1f74e2b8ced3df051cecb81d.jpg"
+                                        alt="">
+                                </div>
+                            </div>
+
+                            <div x-show="open" @click.away="open = false"
+                                class="origin-top-right absolute right-0 mt-0 rounded-b-md py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none w-[200px] shadow-sm z-10"
+                                x-transition:enter-start="transform opacity-0 scale-100"
+                                x-transition:enter-end="transform opacity-100 scale-100"
+                                x-transition:leave-start="transform opacity-100 scale-100"
+                                x-transition:leave-end="transform opacity-0 scale-100" role="menu"
+                                aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
+                                <a href="profile.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                                    role="menuitem" tabindex="-1" id="user-menu-item-0">My Profile<a>
+
+                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                                    role="menuitem" tabindex="-1" id="user-menu-item-1">Sign
+                                    out</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="block lg:hidden w-full px-6">
+                <!-- search bar -->
+                <form action="">
+                    <div class="relative group">
+                        <input type="text"
+                            class="form-input rounded-md bg-gray-200 text-sm pl-10 py-2.5 border-transparent border-none outline-none focus:ring-0 transition-all duration-300 ease-in-out w-full"
+                            placeholder="Search: e.g. Jaket Keren Banget Anjay" autocomplete="off">
+                        <span
+                            class="absolute left-3 top-2.5">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none"
+                                viewBox="0 0 24 24" stroke="#000000">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                            </svg>
+                        </span>
+                    </div>
+                </form>
+            </div>
+        </div>
+        </nav>
+        <!-- End Top navbar -->
+
+        <section class="container mx-auto px-4 py-8 mt-20">
+        <div class="p-6">
+            <!-- Navigation -->
+            <ul class="flex flex-col md:flex-row">
+            <li
+                class="nav-item rounded-t-lg px-4 py-2 mb-2 md:mb-0 md:mr-2 cursor-pointer bg-white"
+            >
+                <span class="block md:inline-block" onclick="BioM()"
+                >Biodata Diri</span
+                >
+            </li>
+            </ul>
+            <!-- Biodata Sections -->
+            <form
+            class="flex flex-col md:flex-row items-start md:space-x-6 bg-white"
+            id="Biodata"
+            >
+                <!-- Your Biodata Diri Content Here -->
+                <div
+                    class="relative p-4 items-center justify-start mb-6 md:mb-0"
+                >
+                    <div class="max-w-xs p-4">
+                    <label for="picture" id="pictureInput" class="cursor-pointer">
+                        <img
+                        class="h-auto w-full"
+                        src="https://images.tokopedia.net/img/cache/300/tPxBYm/2023/1/20/00d6ff75-2a9e-4639-9f11-efe55dcd0885.jpg"
+                        alt="Profile Picture"
+                        />
+                    </label>
+                    <input type="hidden" name="picture" id="picture">
+                    <button
+                        class="my-4 bg-dark text-cream hover:bg-cream hover:text-dark px-4 py-2 w-full rounded-md shadow-sm"
+                    >
+                        Edit Profile Picture
+                    </button>
+                    <p class="text-xs text-gray-500">
+                        Max file size 2MB. Allowed file types: .jpg, .jpeg, .png
+                    </p>
+                    </div>
+                </div>
+                <!-- Personal Data Section -->
+                <div class="relative p-6 w-full">
+                    <div class="flex items-center justify-between mb-4" action="post">
+                        <h2 class="text-xl font-bold">User Profile</h2>
+                        <button type="submit"
+                            class="flex items-center gap-1 transition-all text-green-500 text-sm hover:bg-green-200 px-3 py-2 rounded-lg"
+                            >
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Save
+                            </button
+                        >
+                    </div>
+                    
+                        <table class="min-w-full divide-y divide-gray-200 mb-4">
+                            <tbody class="space-y-2">
+                                <tr class="grid grid-cols-3 gap-1 md:gap-4 items-center">
+                                    <td class="text-left text-xs col-span-3 md:col-span-1 font-bold uppercase text-gray-500">
+                                        <label for="first_name">Firstname</label>
+                                    </td>
+                                    <td class="text-left text-sm col-span-3 md:col-span-1">
+                                        <!-- input -->
+                                        <input type="text" id="first_name" class="py-2 px-1 outline-none border-b border-gray-300 focus:border-slate-800 transition-all w-full" value="John" />
+                                    </td>
+                                </tr>
+                                <tr class="grid grid-cols-3 gap-1 md:gap-4 items-center">
+                                    <td class="text-left text-xs col-span-3 md:col-span-1 font-bold uppercase text-gray-500">
+                                        <label for="last_name">Lastname</label>
+                                    </td>
+                                    <td class="text-left text-sm col-span-3 md:col-span-1">
+                                        <input type="text" id="last_name" class="py-2 px-1 outline-none border-b border-gray-300 focus:border-slate-800 transition-all w-full" value="Cena" />
+                                    </td>
+                                </tr>
+                                <tr class="grid grid-cols-3 gap-1 md:gap-4 items-center">
+                                    <td class="text-left text-xs col-span-3 md:col-span-1 font-bold uppercase text-gray-500">
+                                        <label for="date_of_birth">Date of Birth</label>
+                                    </td>
+                                    <td class="text-left text-sm col-span-3 md:col-span-1">
+                                        <input type="date" id="date_of_birth" class="py-2 px-1 outline-none border-b border-gray-300 focus:border-slate-800 transition-all w-full" value="1990-01-01" />
+                                    </td>
+                                </tr>
+                                <tr class="grid grid-cols-3 gap-1 md:gap-4 items-center">
+                                    <td class="text-left text-xs col-span-3 md:col-span-1 font-bold uppercase text-gray-500">
+                                        <label for="gender">Gender</label>
+                                    </td>
+                                    <td class="text-left text-sm col-span-3 md:col-span-1">
+                                        <select name="gender" id="gender" class="py-2 px-1 outline-none border-b border-gray-300 focus:border-slate-800 transition-all w-full">
+                                            <option value="male">Male</option>
+                                            <option value="female">Female</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <div class="flex items-center justify-between mb-4">
+                            <h2 class="text-xl font-bold">Contact</h2>
+                        </div>
+                        <table class="min-w-full divide-y divide-gray-200 mb-4">
+                            <tbody class="space-y-2">
+                                <tr
+                                class="grid grid-cols-3 gap-1 md:gap-4 items-center md:mb-0"
+                                >
+                                    <td class="text-left text-xs col-span-3 md:col-span-1 font-bold uppercase text-gray-500">
+                                        <label for="email">Email</label>
+                                    </td>
+                                    <td class="text-left text-sm col-span-3 md:col-span-2">
+                                        <input type="email" id="email" class="py-2 px-1 outline-none border-b border-gray-300 focus:border-slate-800 transition-all w-full" value="johndoe@mailing.com" />
+                                    </td>
+                                </tr>
+                                <tr
+                                class="grid grid-cols-3 gap-1 md:gap-4 items-center md:mb-0"
+                                >
+                                    <td class="text-left text-xs col-span-3 md:col-span-1 font-bold uppercase text-gray-500">
+                                        <label for="phone">Phone</label>
+                                    </td>
+                                    <td class="text-left text-sm col-span-3 md:col-span-2">
+                                        <input type="tel" id="phone" class="py-2 px-1 outline-none border-b border-gray-300 focus:border-slate-800 transition-all w-full" value="081234567890" />
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <div class="flex items-center justify-between mb-4">
+                            <h2 class="text-xl font-bold">Address</h2>
+                        </div>
+                        <table class="min-w-full divide-y divide-gray-200 mb-4">
+                            <tbody class="space-y-2">
+                                <tr
+                                class="grid grid-cols-3 gap-1 md:gap-4 items-center md:mb-0"
+                                >
+                                    <td class="text-left text-xs col-span-3 md:col-span-1 font-bold uppercase text-gray-500">
+                                        <label for="address">Address</label>
+                                    </td>
+                                    <td class="text-left col-span-3 text-sm md:col-span-2">
+                                        <textarea
+                                        name="address"
+                                        id="address"
+                                        class="py-2 px-1 outline-none border-b border-gray-300 focus:border-slate-800 transition-all w-full"
+                                        rows="3"
+                                        >Jl. Jend. Sudirman No. 1</textarea
+                                        >
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <div class="border-t border-gray-300 my-6 mx-24" disabled></div>
+                    </div>
+                </form>
+            </div>
+        </section>
+        <!-- Garis Pemisah -->
+        <div class="border-t border-gray-300 my-6 mx-24" disabled></div>
+
+        <footer class="p-8 mx-auto bg-gray-100 text-sm">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 md:gap-8">
+            <div class="mb-8 md:mb-0">
+            <h4 class="font-bold mb-4">Thriftify</h4>
+            <ul>
+                <li>
+                <p class="text-sm">Thriftify is a platform for thrifting clothes and accessories. We provide a platform for sellers to sell their preloved items and buyers to buy them. We are committed to providing the best service for our users.</p>
+                </li>
+            </ul>
+            </div>
+            <div class="mb-8 md:mb-0">
+            <h4 class="font-bold mb-4">Buy</h4>
+            <ul>
+                <li><a href="#" class="hover:underline">Men Clothes</a></li>
+                <li><a href="#" class="hover:underline">Women Clothes</a></li>
+                <li><a href="#" class="hover:underline">Sportwear</a></li>
+            </ul>
+            <h4 class="font-bold mt-8 mb-4">Sell</h4>
+            <ul>
+                <li>
+                <a href="#" class="hover:underline">Seller Education Center</a>
+                </li>
+                <li>
+                <a href="#" class="hover:underline">Official Store Registration</a>
+                </li>
+            </ul>
+            </div>
+            <div class="mb-8 md:mb-0">
+            <h4 class="font-bold mb-4">Help</h4>
+            <ul>
+                <li><a href="#" class="hover:underline">Contact Us</a></li>
+                <li>
+                <a href="#" class="hover:underline">Terms and Conditions</a>
+                </li>
+                <li><a href="#" class="hover:underline">Privacy Policy</a></li>
+            </ul>
+            </div>
+            <div>
+            <h4 class="font-bold mb-4">Follow Us</h4>
+            <div class="flex space-x-2">
+                <a href="#" class="hover:underline">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="#000"><path d="M12 0c6.627 0 12 5.373 12 12s-5.373 12-12 12S0 18.627 0 12 5.373 0 12 0zm4 7.278V4.5h-2.286c-2.1 0-3.428 1.6-3.428 3.889v1.667H8v2.777h2.286V19.5h2.857v-6.667h2.286L16 10.056h-2.857V8.944c0-1.11.572-1.666 1.714-1.666H16z"/></svg>
+                </a>
+                <a href="#" class="hover:underline">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="#000"><path d="M12 0c6.627 0 12 5.373 12 12s-5.373 12-12 12S0 18.627 0 12 5.373 0 12 0zm3.193 7c-1.586 0-2.872 1.243-2.872 2.777 0 .217.025.43.074.633a8.251 8.251 0 0 1-5.92-2.902c-.247.41-.389.887-.389 1.397 0 .963.507 1.813 1.278 2.311a2.94 2.94 0 0 1-1.301-.348v.036c0 1.345.99 2.467 2.304 2.723a2.98 2.98 0 0 1-1.298.047c.366 1.103 1.427 1.906 2.683 1.928a5.889 5.889 0 0 1-3.567 1.19c-.231 0-.46-.014-.685-.04A8.332 8.332 0 0 0 9.903 18c5.283 0 8.172-4.231 8.172-7.901 0-.12-.002-.24-.008-.36A5.714 5.714 0 0 0 19.5 8.302a5.869 5.869 0 0 1-1.65.437 2.8 2.8 0 0 0 1.263-1.536 5.87 5.87 0 0 1-1.824.674A2.915 2.915 0 0 0 15.193 7z"/></svg>
+                </a>
+                <a href="#" class="hover:underline">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="#000"><path d="M12 0c6.6274 0 12 5.3726 12 12s-5.3726 12-12 12S0 18.6274 0 12 5.3726 0 12 0zm3.115 4.5h-6.23c-2.5536 0-4.281 1.6524-4.3805 4.1552L4.5 8.8851v6.1996c0 1.3004.4234 2.4193 1.2702 3.2359.7582.73 1.751 1.1212 2.8818 1.1734l.2633.006h6.1694c1.3004 0 2.389-.4234 3.1754-1.1794.762-.734 1.1817-1.7576 1.2343-2.948l.0056-.2577V8.8851c0-1.2702-.4234-2.3589-1.2097-3.1452-.7338-.762-1.7575-1.1817-2.9234-1.2343l-.252-.0056zM8.9152 5.8911h6.2299c.9072 0 1.6633.2722 2.2076.8166.4713.499.7647 1.1758.8103 1.9607l.0063.2167v6.2298c0 .9375-.3327 1.6936-.877 2.2077-.499.4713-1.176.7392-1.984.7806l-.2237.0057H8.9153c-.9072 0-1.6633-.2722-2.2076-.7863-.499-.499-.7693-1.1759-.8109-2.0073l-.0057-.2306V8.885c0-.9073.2722-1.6633.8166-2.2077.4712-.4713 1.1712-.7392 1.9834-.7806l.2242-.0057h6.2299-6.2299zM12 8.0988c-2.117 0-3.871 1.7238-3.871 3.871A3.8591 3.8591 0 0 0 12 15.8408c2.1472 0 3.871-1.7541 3.871-3.871 0-2.117-1.754-3.871-3.871-3.871zm0 1.3911c1.3609 0 2.4798 1.119 2.4798 2.4799 0 1.3608-1.119 2.4798-2.4798 2.4798-1.3609 0-2.4798-1.119-2.4798-2.4798 0-1.361 1.119-2.4799 2.4798-2.4799zm4.0222-2.3589a.877.877 0 1 0 0 1.754.877.877 0 0 0 0-1.754z"/></svg>
+                </a>
+            </div>
+            </div>
+        </div>
+        <div class="flex justify-between items-center mt-8">
+            <div class="mb-4 md:mb-0">
+            <span class="text-gray-700">&copy; <script>document.write(new Date().getFullYear())</script> Thriftify. All rights reserved.</span>
+            </div>
+        </div>
+        </footer>
+        <!-- JavaScript -->
+        <script src="../src/js/index.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    </body>
+</html>

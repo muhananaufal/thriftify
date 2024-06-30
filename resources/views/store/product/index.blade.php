@@ -24,7 +24,7 @@
                             </span>
                         </div>
                     </form> --}}
-                    
+
 
                     <a href="{{ route('store.product.create') }}"
                         class="flex items-center gap-3 rounded-lg bg-slate-900 text-white hover:bg-slate-950 transition-all py-3 px-4 cursor-pointer">
@@ -38,7 +38,7 @@
                     </a>
                 </div>
             </div>
-            
+
             <!-- Navtabs -->
             <div class="flex justify-center md:justify-normal mt-6">
                 <nav class="flex space-x-4">
@@ -144,7 +144,7 @@
                                                             x-transition:leave-end="transform opacity-0 scale-95"
                                                             role="menu" aria-orientation="vertical"
                                                             aria-labelledby="user-menu-button" tabindex="-1">
-                                                            <a href="{{ route('store.order.show', $order->id) }}"
+                                                            <a href="{{ route('store.product.details', $product) }}"
                                                                 class="flex gap-2 items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"role="menuitem"
                                                                 tabindex="-1" id="user-menu-item-0">
                                                                 <svg xmlns="http://www.w3.org/2000/svg" width="20"

@@ -132,6 +132,7 @@
                                                             <form action="{{ route('checkout.pay', $order->id) }}"
                                                                 method="POST">
                                                                 @csrf
+                                                                @method('put')
                                                                 <button type="submit" class="btn">Pay</button>
                                                             </form>
                                                         </a>

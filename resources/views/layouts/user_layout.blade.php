@@ -23,8 +23,14 @@
 
         <!-- content -->
         <div class="flex-1 flex-col flex min-h-screen">
+            @auth
             @include('partials.user_topnav')
-
+            @endauth
+            
+            @guest
+            
+            @include('partials.guest_topnav')
+            @endguest
             @yield('content')
 
             @include('partials.footer')
